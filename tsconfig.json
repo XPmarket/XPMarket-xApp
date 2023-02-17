@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2021",
+    "outDir": "./dist",
+    "paths": {
+      "@public/*": ["public/*"],
+      "@templates/*": ["templates/*"],
+      "@slices/*": ["slices/*"],
+      "@api/*": ["api/*"],
+      "@business/*": ["business/*"],
+      "@system/*": ["system/*"],
+      "@ui/*": ["ui/*"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "checkJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "allowJs": true,
+    "noErrorTruncation": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "server",
+    "next-i18next.config.js",
+    "pwa-cache.js"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

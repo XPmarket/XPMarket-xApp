@@ -1,0 +1,59 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+#cache
+.npm
+
+#ssl
+/server/certificates/*.pem
+
+#next-pwa (service-workers)
+**/public/workbox-*.js
+**/public/workbox-*.js.map
+**/public/service-worker.js
+**/public/service-worker.js.map
+**/public/worker-*.js
+**/public/fallback-*.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/dist
+/public/~partytown
+
+# misc
+.DS_Store
+/.idea
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.env.development
+.env.production
+.vscode
+tsconfig.tsbuildinfo
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Sentry
+.sentryclirc

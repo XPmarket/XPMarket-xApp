@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /airdrops
+Disallow: /portfolio
+Disallow: /profit-and-loss

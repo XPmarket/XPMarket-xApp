@@ -1,0 +1,352 @@
+{
+  "cancel": "Cancel",
+  "accept": "Accept",
+  "proceed": "Proceed",
+  "next": "Next",
+  "back": "Back",
+  "new": "New",
+  "loading": "Loading...",
+  "noOptions": "No options available",
+  "allOption": "All",
+  "day_one": "{{count}} day",
+  "day_other": "{{count}} days",
+  "month_one": "{{count}} month",
+  "month_other": "{{count}} months",
+  "unknownCollection": "Unknown collection",
+  "faqShort": "FAQ",
+  "buttons": {
+    "connectWallet": "Connect wallet",
+    "connect": "Connect"
+  },
+  "competitions": {
+    "dex": {
+      "title": "The Trading Competition is now LIVE!",
+      "subtitle": "Win a FREE NFT!"
+    }
+  },
+  "globalSearch": {
+    "search": "Search",
+    "groups": {
+      "token": "Tokens",
+      "dex": "DEX",
+      "nftCollections": "NFT collections"
+    }
+  },
+  "success": {},
+  "info": {
+    "loggedOut": "You were logged out due to invalid session",
+    "socketOffline": "Connectivity issue detected, try refreshing the page",
+    "clipboardCopy": "Copied to clipboard"
+  },
+  "errors": {
+    "noData": "There is no data currently available.",
+    "resultFetchFail": "Failed to fetch results",
+    "unexpected": "Unexpected error ocurred",
+    "authFail": "Failed to authenticate",
+    "noWallet": "No wallet detected. Please log in first.",
+    "offline": "You seem to be offline. Please check your internet connection.",
+    "accountListFail": "Failed to retrieve user accounts",
+    "balanceFetchFail": "Failed to fetch balances",
+    "deleteAccountFail": "Failed to delete account",
+    "switchAccountFail": "Failed to switch account",
+    "loginUnreachable": "Cannot reach login service. Please try again later.",
+    "globalSearchFail": "Failed to retrieve search entries",
+    "footerSubscriptionFail": "Failed to subscribe",
+    "nftOfferCreateFail": "Failed to create an offer",
+    "noBalance": "Insufficient balance",
+    "nftOfferAcceptFail": "Failed to accept an offer",
+    "nftOfferAcceptInfoFail": "Failed to fetch offer information",
+    "pastDate": "Past dates are forbidden",
+    "invalidDate": "Please enter a valid date",
+    "tosRequired": "You must accept our Terms And Conditions before submitting",
+    "loginRequired": "Action requires logging in",
+    "tooManyRequests": "You made too many requests. Please wait a bit.",
+    "imageNotLoaded": "Image failed to load"
+  },
+  "walletDropdown": {
+    "logout": "Logout",
+    "addAccount": "Add account",
+    "multipleAccounts": "Connect multiple accounts",
+    "active": "Active XRPL Account",
+    "switch": "Switch to this account",
+    "tooltips": {
+      "copy": "Copy wallet address",
+      "remove": "Remove wallet address"
+    }
+  },
+  "contentFallback": {
+    "title": "Oops!",
+    "description": "Under construction",
+    "reported": "We are sorry to hear that you encountered a problem, but don't worry - our coding wizards are working on the issue and doing everything they can to get the page back up.",
+    "contactUs": "Contact us"
+  },
+  "loginDialog": {
+    "getXumm": "Get Xumm App",
+    "signIn": "Sign In",
+    "loginTitle": "Welcome back!",
+    "loginDescription": "Please sign in with your Xumm app",
+    "multiLoginDescription": "You can sign in with an additional wallet",
+    "promoTitle": "Experience the Future of XRPL Asset Management with XPmarket!",
+    "promoDescription": "Log in with your XUMM wallet to keep track of your assets, trade on our DEX, Quick Swap your tokens, explore thousands of NFTS and more! And don't worry - connecting your wallet to XPmarket only shares your public address, so your funds are always safe and secure, with no control over them from XPmarket."
+  },
+  "walletDialog": {
+    "title": "Sign Transaction",
+    "description": "Scan the QR code with your XUMM Wallet to proceed.",
+    "noMobileRedirect": "Failed to redirect to XUMM app? Click here",
+    "mobileDescription": "Sign the transaction in your XUMM app",
+    "alt": "XUMM QR code",
+    "expired": "QR code expired, please try again",
+    "declined": "Transaction declined",
+    "success": "Transaction signed",
+    "toggleDescription": "Sign the transaction in your XUMM app",
+    "toggleAction": "Didn't get notification? Click here",
+    "wasSigned": "Transaction was signed. Proceeding...",
+    "signedProcessing": "Transaction signed. Processing your order, it might take a few seconds..."
+  },
+  "nftOfferDialog": {
+    "titleByType": {
+      "sell": "List for sale",
+      "buy": "Make an offer"
+    },
+    "lastPrice": "Last price",
+    "form": {
+      "button": {
+        "submit": "Confirm Offer"
+      },
+      "label": {
+        "amount": "Offer Amount",
+        "balance": "Balance",
+        "duration": "Duration",
+        "date": "Date"
+      }
+    }
+  },
+  "nftAcceptDialog": {
+    "title": "Accept offer",
+    "bestOffer": "Best offer",
+    "fee": "Transaction fee",
+    "expiration": "Expiration date",
+    "totalEarning": "Total earnings",
+    "form": {
+      "button": {
+        "submit": "Accept best offer"
+      },
+      "label": {
+        "tos": "I agree with XPmarket's <0>Terms and Conditions</0>"
+      }
+    }
+  },
+  "nftBuyDialog": {
+    "title": "Buy this NFT",
+    "price": "Price",
+    "fee": "Transaction fees",
+    "total": "Total",
+    "form": {
+      "button": {
+        "submit": "Buy Now!"
+      },
+      "label": {
+        "tos": "I agree with XPmarket's <0>Terms and Conditions</0>"
+      }
+    }
+  },
+  "layout": {
+    "balance": "Balance:",
+    "menu": {
+      "statistics": "Statistics",
+      "topTokens": "Top 100 tokens",
+      "topTokensDescr": "Tokens that meet Top100 standards",
+      "allTokens": "All tokens",
+      "allTokensDescr": "All tokens without any filters",
+      "tokensHeatmap": "Heatmap",
+      "tokensHeatmapDescr": "Visualised market state",
+      "nftsHeatmap": "Heatmap",
+      "nftsHeatmapDescr": "View market leaders and potential ",
+      "tokenAirdrops": "New tokens",
+      "tokenAirdropsDescr": "Overview of recently launched tokens",
+      "exchange": "Exchange",
+      "dex": "DEX",
+      "dexDescr": "Trade tokens with advanced tools",
+      "swap": "Swap",
+      "swapDescr": "The easiest way to exchange tokens",
+      "dexCompetition": "Trading Contest",
+      "dexCompetitionDescr": "Win 1 of 100 NFT!",
+      "fx": "Forex Trading",
+      "portfolio": "Portfolio",
+      "portfolioTokens": "My Tokens",
+      "portfolioTokensDescr": "Your tokens overview",
+      "portfolioNfts": "My NFTs",
+      "portfolioNftsDescr": "Your NFTs overview",
+      "portfolioOrders": "My Orders",
+      "portfolioOrdersDescr": "Your orders overview",
+      "profitLoss": "Performance",
+      "profitLossDescr": "Track your profits and losses",
+      "nftCollectionsTop": "Top NFT Collections",
+      "nftCollectionsTopDescr": "Explore all the top NFT collections",
+      "nftExplorer": "Explorer",
+      "nftExplorerDescr": "The easiest way to find NFTs",
+      "nftinder": "NFT Swiper",
+      "nftinderDescr": "Surf XRPL NFTs and collect your favourites",
+      "loginRequired": "Logging in is required",
+      "groups": {
+        "tokens": "Tokens",
+        "nfts": "NFTs"
+      }
+    },
+    "xummDialogTitle": "Sign in with XUMM",
+    "mainnet": "MAINNET",
+    "xrpl": "xrpl.ws",
+    "s1ripple": "s1.ripple.com",
+    "s2ripple": "s2.ripple.com",
+    "altnet": "s.altnet.rippletest.net:51233",
+    "wallet": "Wallet",
+    "network": "Network",
+    "dark": "Dark",
+    "light": "Light",
+    "footer": {
+      "socials": "Socials:",
+      "twitter": "Twitter",
+      "telegram": "Telegram",
+      "linkedIn": "LinkedIn",
+      "blog": "Blog",
+      "products": "XPmarket products:",
+      "topTokens": "XRPL TOP 100",
+      "allTokens": "All XRPL Tokens",
+      "tokensHeatmap": "Heatmap",
+      "dex": "DEX",
+      "swap": "XRPL Swap",
+      "legal": "Legal:",
+      "tos": "Terms and conditions",
+      "disclaimer": "Disclaimer",
+      "privacyNotice": "Privacy notice",
+      "cookiePolicy": "Cookie policy",
+      "subscribeTitle": "Not quite ready for xpmarket?",
+      "subscribeDescription": "Join our online no-code community for free. No spam. Ever.",
+      "form": {
+        "submit": "Subscribe",
+        "label": {
+          "email": "Email"
+        }
+      }
+    }
+  },
+  "cookieConsent": {
+    "message": "This website uses cookies to provide necessary website functionality, improve your experience and analyze our traffic. \nBy using our website, you agree to our <0>privacy policy</0> and our <1>cookies usage</1>."
+  },
+  "validation": {
+    "fieldRequired": "This field is required",
+    "string": {
+      "email": "Must be a valid email",
+      "min": "Must include at least {{count}} character",
+      "min_plural": "Must include at least {{count}} characters",
+      "max": "Must include no more than {{count}} character",
+      "max_plural": "Must include no more than {{count}} characters",
+      "length": "Must be exactly {{count}} character",
+      "length_plural": "Must be exactly {{count}} characters"
+    },
+    "array": {
+      "min": "Must include at least {{count}} item",
+      "min_plural": "Must include at least {{count}} items",
+      "max": "Must include no more than {{count}} item",
+      "max_plural": "Must include no more than {{count}} items"
+    },
+    "number": {
+      "min": "Must be more than {{count}}",
+      "max": "Must be less than {{count}}",
+      "typeError": "Amount must be a number"
+    },
+    "passwordMatch": "Passwords must match"
+  },
+  "alt": {
+    "logo": "Logo"
+  },
+  "ariaLabels": {
+    "close": "Close",
+    "edit": "Edit",
+    "delete": "delete",
+    "logo": "Logo",
+    "cancel": "Cancel",
+    "togglePassword": "Toggle password visibility",
+    "clearSelection": "Clear selection",
+    "toggleDropdown": "Toggle dropdown",
+    "nextSlide": "Go to next slide",
+    "prevSlide": "Go to previous slide",
+    "menu": "Menu",
+    "toggleRowExpansion": "Toggle row expansion",
+    "listOfLanguages": "List of languages",
+    "language": "Chosen language",
+    "openTradeList": "Open trade list",
+    "reset": "Reset"
+  },
+  "ccyStats": {
+    "pairLogo": "Logo",
+    "price": "Price",
+    "volume": "Volume",
+    "dayLow": "24H low",
+    "dayHigh": "24H high",
+    "balance": "{{ ccy }} balance"
+  },
+  "statistics": {
+    "market": {
+      "cryptos": "Tokens:",
+      "totalNfts": "NFTs:",
+      "nftVolume": "NFT Volume:",
+      "totalMarketCap": "Market cap:",
+      "cexVolume": "CEX Volume:",
+      "dexVolume": "DEX Volume:",
+      "xrpPrice": "XRP price:"
+    }
+  },
+  "table": {
+    "tooltips": {
+      "kycPassed": "KYC passed",
+      "isBlackholed": "Blackholed",
+      "isTrading": "Trading started",
+      "hasValidator": "Network validator",
+      "isNew": "Younger than 60 days",
+      "enableFiltering": "Enable table search",
+      "disableFiltering": "Disable table search"
+    },
+    "loginRequired": "To see more results, please log in.",
+    "emptyQuery": "No entries found. Try a different query.",
+    "emptyTable": "There is no data currently available.",
+    "search": "Search"
+  },
+  "breadcrumbs": {
+    "tokens": {
+      "index": "Tokens",
+      "allTokens": "All",
+      "heatmap": "Heatmap",
+      "topTokens": "Top 100",
+      "tokenAirdrops": "New tokens",
+      "fxTop": "FX Top"
+    },
+    "nfts": {
+      "index": "NFTs",
+      "explorer": "Explorer",
+      "collectionsTop": "Top NFT Collections",
+      "nftinder": "Swiper",
+      "heatmap": "Heatmap"
+    },
+    "exchange": {
+      "index": "Exchange",
+      "fx": "FX",
+      "trading": {
+        "index": "DEX",
+        "tradeList": "Trade list"
+      }
+    },
+    "portfolio": {
+      "index": "Portfolio",
+      "myPortfolio": "My portfolio",
+      "profitAndLoss": "Performance"
+    },
+    "general": {
+      "index": "General",
+      "cookiePolicy": "Cookie Policy",
+      "privacyNotice": "Privacy Notice",
+      "disclaimer": "Disclaimer",
+      "tos": "Terms & Conditions"
+    }
+  }
+}

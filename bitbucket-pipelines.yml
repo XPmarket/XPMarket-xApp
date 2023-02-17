@@ -1,0 +1,82 @@
+image: node:16
+
+pipelines:
+    pull-requests:
+        '**':
+            - step:
+                  name: Lint & Test
+                  caches:
+                      - node # provided by bitbucket to cache node_modules
+                  script:
+                      - npm install --include=dev --legacy-peer-deps
+                      - npm run lint
+                      - npm run test:unit
+    branches:
+        master:
+            - step:
+                  name: Build and Deploy
+                  caches:
+                      - node
+                      - nextcache
+                  script:
+                      - apt-get update && apt-get -qq install rsync
+
+                      - npm ci --cache .npm --prefer-offline --omit=dev --legacy-peer-deps
+                      - npm run build
+
+                      - mkdir deploy
+                      - echo "NEXT_PUBLIC_APP_ENV=prod" > ./deploy/.env.local
+                      - echo "NEXT_PUBLIC_BASE_ORIGIN=https://xpmarket.com" >> ./deploy/.env.local
+                      - echo "NODE_ENV=production" >> ./deploy/.env.local
+                      - echo "XUMM_API_KEY=$XUMM_API_KEY" >> ./deploy/.env.local
+                      - echo "XUMM_API_SECRET=$XUMM_API_SECRET" >> ./deploy/.env.local
+                      - echo "SENTRY_DSN=$SENTRY_DSN" >> ./deploy/.env.local
+                      - echo "NEXT_PUBLIC_SENTRY_DSN=$NEXT_PUBLIC_SENTRY_DSN" >> ./deploy/.env.local
+                      - cp -a .next ./deploy
+                      - cp package.json ./deploy
+                      - cp -a node_modules ./deploy
+                      - cp -a public ./deploy
+                      - cp -a next-i18next.config.js ./deploy
+                      - cp -a next.config.js ./deploy
+
+                      # rsync to a temp directory on remote server
+                      - rsync -arz --delete $BITBUCKET_CLONE_DIR/deploy/ root@195.201.171.86:/var/www/dex-temp
+                      # clear current serving directory, sync from temp directory to serving directory
+                      - ssh root@195.201.171.86 "rsync -ar --delete /var/www/dex-temp/ /var/www/dex && rm -r /var/www/dex-temp"
+                      # restart next server
+                      - ssh root@195.201.171.86 "pm2 restart 0"
+
+        development:
+            - step:
+                  name: Build and Deploy
+                  caches:
+                      - node
+                      - nextcache
+                  script:
+                      - apt-get update && apt-get -qq install rsync
+
+                      - npm ci --cache .npm --prefer-offline --omit=dev --legacy-peer-deps
+                      - npm run build
+
+                      - mkdir deploy-dev
+                      - echo "NEXT_PUBLIC_APP_ENV=dev" > ./deploy-dev/.env.local
+                      - echo "NEXT_PUBLIC_BASE_ORIGIN=https://dev.xpmarket.com" >> ./deploy-dev/.env.local
+                      - echo "NODE_ENV=production" >> ./deploy-dev/.env.local
+                      - echo "XUMM_API_KEY=$XUMM_API_KEY" >> ./deploy-dev/.env.local
+                      - echo "XUMM_API_SECRET=$XUMM_API_SECRET" >> ./deploy-dev/.env.local
+                      - cp -a .next ./deploy-dev
+                      - cp package.json ./deploy-dev
+                      - cp -a node_modules ./deploy-dev
+                      - cp -a public ./deploy-dev
+                      - cp -a next-i18next.config.js ./deploy-dev
+                      - cp -a next.config.js ./deploy-dev
+
+                      # rsync to a temp directory on remote server
+                      - rsync -arz --delete $BITBUCKET_CLONE_DIR/deploy-dev/ root@195.201.171.86:/var/www/dex-dev-temp
+                      # clear current serving directory, sync from temp directory to serving directory
+                      - ssh root@195.201.171.86 "rsync -ar --delete /var/www/dex-dev-temp/ /var/www/dex-dev && rm -r /var/www/dex-dev-temp"
+                      # restart next server
+                      - ssh root@195.201.171.86 "pm2 restart 1"
+definitions:
+    caches:
+        nextcache: .next/cache
