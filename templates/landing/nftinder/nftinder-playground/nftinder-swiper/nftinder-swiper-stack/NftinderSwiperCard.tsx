@@ -13,9 +13,9 @@ import {
   useTransform,
 } from 'framer-motion';
 
-import { NftSwipeListItem } from '@api/xpmarket/nft/types';
 import { Box } from '@mui/material';
 import useEventListener from '@use-it/event-listener';
+import { NftSwipeListItem } from '@xpmarket/xpm.api.xpmarket';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import {
   ExpandableImageContainer,

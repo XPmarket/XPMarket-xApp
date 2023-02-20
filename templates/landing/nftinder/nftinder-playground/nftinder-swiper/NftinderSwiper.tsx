@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from 'react';
 
-import { NftSwipeListItem } from '@api/xpmarket/nft/types';
 import { Stack } from '@mui/material';
+import { NftSwipeListItem } from '@xpmarket/xpm.api.xpmarket';
 
 import { SetHistoryList } from '../types';
 import { LikeButtonIcon } from './nftinder-swiper-actions/LikeButton';

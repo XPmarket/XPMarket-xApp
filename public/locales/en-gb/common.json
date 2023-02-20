@@ -18,20 +18,6 @@
     "connectWallet": "Connect wallet",
     "connect": "Connect"
   },
-  "competitions": {
-    "dex": {
-      "title": "The Trading Competition is now LIVE!",
-      "subtitle": "Win a FREE NFT!"
-    }
-  },
-  "globalSearch": {
-    "search": "Search",
-    "groups": {
-      "token": "Tokens",
-      "dex": "DEX",
-      "nftCollections": "NFT collections"
-    }
-  },
   "success": {},
   "info": {
     "loggedOut": "You were logged out due to invalid session",
@@ -150,89 +136,6 @@
       }
     }
   },
-  "layout": {
-    "balance": "Balance:",
-    "menu": {
-      "statistics": "Statistics",
-      "topTokens": "Top 100 tokens",
-      "topTokensDescr": "Tokens that meet Top100 standards",
-      "allTokens": "All tokens",
-      "allTokensDescr": "All tokens without any filters",
-      "tokensHeatmap": "Heatmap",
-      "tokensHeatmapDescr": "Visualised market state",
-      "nftsHeatmap": "Heatmap",
-      "nftsHeatmapDescr": "View market leaders and potential ",
-      "tokenAirdrops": "New tokens",
-      "tokenAirdropsDescr": "Overview of recently launched tokens",
-      "exchange": "Exchange",
-      "dex": "DEX",
-      "dexDescr": "Trade tokens with advanced tools",
-      "swap": "Swap",
-      "swapDescr": "The easiest way to exchange tokens",
-      "dexCompetition": "Trading Contest",
-      "dexCompetitionDescr": "Win 1 of 100 NFT!",
-      "fx": "Forex Trading",
-      "portfolio": "Portfolio",
-      "portfolioTokens": "My Tokens",
-      "portfolioTokensDescr": "Your tokens overview",
-      "portfolioNfts": "My NFTs",
-      "portfolioNftsDescr": "Your NFTs overview",
-      "portfolioOrders": "My Orders",
-      "portfolioOrdersDescr": "Your orders overview",
-      "profitLoss": "Performance",
-      "profitLossDescr": "Track your profits and losses",
-      "nftCollectionsTop": "Top NFT Collections",
-      "nftCollectionsTopDescr": "Explore all the top NFT collections",
-      "nftExplorer": "Explorer",
-      "nftExplorerDescr": "The easiest way to find NFTs",
-      "nftinder": "NFT Swiper",
-      "nftinderDescr": "Surf XRPL NFTs and collect your favourites",
-      "loginRequired": "Logging in is required",
-      "groups": {
-        "tokens": "Tokens",
-        "nfts": "NFTs"
-      }
-    },
-    "xummDialogTitle": "Sign in with XUMM",
-    "mainnet": "MAINNET",
-    "xrpl": "xrpl.ws",
-    "s1ripple": "s1.ripple.com",
-    "s2ripple": "s2.ripple.com",
-    "altnet": "s.altnet.rippletest.net:51233",
-    "wallet": "Wallet",
-    "network": "Network",
-    "dark": "Dark",
-    "light": "Light",
-    "footer": {
-      "socials": "Socials:",
-      "twitter": "Twitter",
-      "telegram": "Telegram",
-      "linkedIn": "LinkedIn",
-      "blog": "Blog",
-      "products": "XPmarket products:",
-      "topTokens": "XRPL TOP 100",
-      "allTokens": "All XRPL Tokens",
-      "tokensHeatmap": "Heatmap",
-      "dex": "DEX",
-      "swap": "XRPL Swap",
-      "legal": "Legal:",
-      "tos": "Terms and conditions",
-      "disclaimer": "Disclaimer",
-      "privacyNotice": "Privacy notice",
-      "cookiePolicy": "Cookie policy",
-      "subscribeTitle": "Not quite ready for xpmarket?",
-      "subscribeDescription": "Join our online no-code community for free. No spam. Ever.",
-      "form": {
-        "submit": "Subscribe",
-        "label": {
-          "email": "Email"
-        }
-      }
-    }
-  },
-  "cookieConsent": {
-    "message": "This website uses cookies to provide necessary website functionality, improve your experience and analyze our traffic. \nBy using our website, you agree to our <0>privacy policy</0> and our <1>cookies usage</1>."
-  },
   "validation": {
     "fieldRequired": "This field is required",
     "string": {
@@ -277,76 +180,5 @@
     "language": "Chosen language",
     "openTradeList": "Open trade list",
     "reset": "Reset"
-  },
-  "ccyStats": {
-    "pairLogo": "Logo",
-    "price": "Price",
-    "volume": "Volume",
-    "dayLow": "24H low",
-    "dayHigh": "24H high",
-    "balance": "{{ ccy }} balance"
-  },
-  "statistics": {
-    "market": {
-      "cryptos": "Tokens:",
-      "totalNfts": "NFTs:",
-      "nftVolume": "NFT Volume:",
-      "totalMarketCap": "Market cap:",
-      "cexVolume": "CEX Volume:",
-      "dexVolume": "DEX Volume:",
-      "xrpPrice": "XRP price:"
-    }
-  },
-  "table": {
-    "tooltips": {
-      "kycPassed": "KYC passed",
-      "isBlackholed": "Blackholed",
-      "isTrading": "Trading started",
-      "hasValidator": "Network validator",
-      "isNew": "Younger than 60 days",
-      "enableFiltering": "Enable table search",
-      "disableFiltering": "Disable table search"
-    },
-    "loginRequired": "To see more results, please log in.",
-    "emptyQuery": "No entries found. Try a different query.",
-    "emptyTable": "There is no data currently available.",
-    "search": "Search"
-  },
-  "breadcrumbs": {
-    "tokens": {
-      "index": "Tokens",
-      "allTokens": "All",
-      "heatmap": "Heatmap",
-      "topTokens": "Top 100",
-      "tokenAirdrops": "New tokens",
-      "fxTop": "FX Top"
-    },
-    "nfts": {
-      "index": "NFTs",
-      "explorer": "Explorer",
-      "collectionsTop": "Top NFT Collections",
-      "nftinder": "Swiper",
-      "heatmap": "Heatmap"
-    },
-    "exchange": {
-      "index": "Exchange",
-      "fx": "FX",
-      "trading": {
-        "index": "DEX",
-        "tradeList": "Trade list"
-      }
-    },
-    "portfolio": {
-      "index": "Portfolio",
-      "myPortfolio": "My portfolio",
-      "profitAndLoss": "Performance"
-    },
-    "general": {
-      "index": "General",
-      "cookiePolicy": "Cookie Policy",
-      "privacyNotice": "Privacy Notice",
-      "disclaimer": "Disclaimer",
-      "tos": "Terms & Conditions"
-    }
   }
 }

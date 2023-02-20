@@ -1,9 +1,9 @@
 import { TFunction, useTranslation } from 'next-i18next';
 
 import { api } from '@api/endpoints';
-import { PostNftSwipeVoteRo } from '@api/xpmarket/nft/types';
 import { formatError } from '@system/fetch/errors';
 import { useApiMutation } from '@system/fetch/useApiMutation';
+import { PostNftSwipeVoteRo } from '@xpmarket/xpm.api.xpmarket';
 
 import { VoteMutationVariables } from './types';
 

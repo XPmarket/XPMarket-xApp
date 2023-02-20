@@ -2,14 +2,14 @@ import { addDays, addMonths } from 'date-fns';
 import { useTranslation } from 'next-i18next';
 
 import { api } from '@api/endpoints';
+import { formatError } from '@system/fetch/errors';
+import { useApiMutation } from '@system/fetch/useApiMutation';
 import {
   OfferCreateType,
   PostOfferCreateDto,
   PostOfferCreateRo,
   PostOfferCreateRouteParams,
-} from '@api/xpmarket/nft/types';
-import { formatError } from '@system/fetch/errors';
-import { useApiMutation } from '@system/fetch/useApiMutation';
+} from '@xpmarket/xpm.api.xpmarket';
 import { formatDateUtc } from '@xpmarket/xpm.system.time';
 
 import { SubmitMutation, SubmitMutationDto } from './types';

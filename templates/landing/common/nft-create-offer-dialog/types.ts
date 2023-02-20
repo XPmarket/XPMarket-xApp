@@ -1,6 +1,6 @@
 import { UseMutateFunction } from 'react-query';
 
-import { OfferCreateType, PostOfferCreateRo } from '@api/xpmarket/nft/types';
+import { OfferCreateType, PostOfferCreateRo } from '@xpmarket/xpm.api.xpmarket';
 
 export type SubmitMutation = UseMutateFunction<
   PostOfferCreateRo,

@@ -2,14 +2,14 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { TFunction, useTranslation } from 'next-i18next';
 
 import { api } from '@api/endpoints';
-import {
-  GetNftSwipeHistoryRo,
-  NftSwipeHistoryItem,
-} from '@api/xpmarket/nft/types';
 import { useAuth } from '@system/auth/AuthContext';
 import { CACHE_KEYS } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiQuery } from '@system/fetch/useApiQuery';
+import {
+  GetNftSwipeHistoryRo,
+  NftSwipeHistoryItem,
+} from '@xpmarket/xpm.api.xpmarket';
 
 import { SWIPE_HISTORY_LIMIT } from './constants';
 

@@ -13,9 +13,9 @@ import Cookies, { CookieAttributes } from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import { api } from '@api/endpoints';
-import { GetLoginCheckRo, PostLoginRo, User } from '@api/xpmarket/login/types';
 import { COOKIE_STORAGE } from '@system/constants';
 import { formatError } from '@system/fetch/errors';
+import { GetLoginCheckRo, PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
 import { parseStringified } from '@xpmarket/xpm.system.storage';
 
 import { routeGuard } from './authorization';

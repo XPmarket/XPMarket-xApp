@@ -2,11 +2,6 @@ import { useMemo } from 'react';
 import { TFunction, useTranslation } from 'next-i18next';
 
 import { api } from '@api/endpoints';
-import {
-  AccountInfo,
-  AccountObject,
-  GetDexBalancesRo,
-} from '@api/xpmarket/dex/types';
 import { useAuth } from '@system/auth/AuthContext';
 import {
   CACHE_KEYS,
@@ -15,6 +10,11 @@ import {
 } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiQuery } from '@system/fetch/useApiQuery';
+import {
+  AccountInfo,
+  AccountObject,
+  GetDexBalancesRo,
+} from '@xpmarket/xpm.api.xpmarket';
 import { decodeToken, XRP_PRECISION } from '@xpmarket/xpm.system.xrpl';
 
 interface ReturnType {

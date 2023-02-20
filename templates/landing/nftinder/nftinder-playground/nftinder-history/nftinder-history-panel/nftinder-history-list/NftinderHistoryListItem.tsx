@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { NftSwipeHistoryItem } from '@api/xpmarket/nft/types';
 import { Box, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
+import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 import {
   replaceRouteParams,
   XPMARKET_ROUTES,

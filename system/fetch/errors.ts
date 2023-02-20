@@ -3,8 +3,8 @@ import { AxiosError } from 'axios';
 import { StatusCodes } from 'http-status-codes';
 import { TFunction } from 'next-i18next';
 
-import { XpmarketResponse } from '@api/xpmarket/types';
 import { TOAST_IDS } from '@system/constants';
+import { XpmarketResponse } from '@xpmarket/xpm.api.xpmarket';
 import { AnyObject } from '@xpmarket/xpm.system.types';
 
 import { ErrorHandlerParams } from './types';

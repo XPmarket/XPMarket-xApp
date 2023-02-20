@@ -41,7 +41,7 @@ const requestCheck = async (
   }
 
   try {
-    const res = await api.internal.account.getXummPayload({
+    const res = await api.xpmarketInternal.account.getXummPayload({
       id: uuid,
     });
 

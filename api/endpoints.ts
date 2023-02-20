@@ -1,11 +1,10 @@
-import { internal } from './internal';
-import { ripple } from './ripple';
-import { sologenic } from './sologenic';
-import { xpmarket } from './xpmarket';
+import { makeXpmRequests } from '@xpmarket/xpm.api.xpmarket';
+import { makeXpmInternalRequests } from '@xpmarket/xpm.api.xpmarket-internal';
+
+import { xpmClient } from './xpmarket/client';
+import { xpmInternalClient } from './xpmarket-internal/client';
 
 export const api = {
-  internal,
-  xpmarket,
-  ripple,
-  sologenic,
+  xpmarket: makeXpmRequests(xpmClient),
+  xpmarketInternal: makeXpmInternalRequests(xpmInternalClient),
 };

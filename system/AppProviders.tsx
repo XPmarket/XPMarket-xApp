@@ -29,7 +29,6 @@ const ReactQueryDevtools = dynamic<DevtoolsOptions>(
 
 export interface AppProvidersProps {
   children: ReactNode;
-  reqThemeMode: string | undefined;
   reqSession: string | undefined;
   reqUser: string | undefined;
   reqUserAgent: string | undefined;

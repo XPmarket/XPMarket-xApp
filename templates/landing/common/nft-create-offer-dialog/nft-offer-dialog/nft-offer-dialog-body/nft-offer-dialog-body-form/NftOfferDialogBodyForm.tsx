@@ -2,10 +2,10 @@ import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { TFunction, useTranslation } from 'next-i18next';
 
-import { OfferCreateType } from '@api/xpmarket/nft/types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Stack } from '@mui/material';
 import { useTokenBalance } from '@templates/common/useTokenBalance';
+import { OfferCreateType } from '@xpmarket/xpm.api.xpmarket';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import {
   decodeToken,

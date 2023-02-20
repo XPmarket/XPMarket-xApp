@@ -2,9 +2,9 @@ import { FC } from 'react';
 import { TransitionGroup } from 'react-transition-group';
 import { useTranslation } from 'next-i18next';
 
-import { NftSwipeHistoryItem } from '@api/xpmarket/nft/types';
 import { Stack, Typography } from '@mui/material';
 import Collapse from '@mui/material/Collapse';
+import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 
 import { NftinderHistoryListItem } from './NftinderHistoryListItem';
 import { NftinderHistoryListSkeleton } from './NftinderHistoryListSkeleton';

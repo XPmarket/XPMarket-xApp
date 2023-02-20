@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { NftSwipeHistoryItem } from '@api/xpmarket/nft/types';
 import { Stack } from '@mui/material';
+import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 import { useToggle } from '@xpmarket/xpm.system.use-toggle';
 
 import { NftinderHistoryPanel } from './nftinder-history-panel/NftinderHistoryPanel';

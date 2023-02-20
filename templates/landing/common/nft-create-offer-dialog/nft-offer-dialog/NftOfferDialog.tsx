@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { OfferCreateType } from '@api/xpmarket/nft/types';
 import { Dialog, DialogContent, DialogTitle } from '@mui/material';
+import { OfferCreateType } from '@xpmarket/xpm.api.xpmarket';
 
 import { SubmitMutationDto } from '../types';
 import { NftOfferDialogBody } from './nft-offer-dialog-body/NftOfferDialogBody';

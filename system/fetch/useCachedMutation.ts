@@ -2,8 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { QueryKey, useQueryClient } from 'react-query';
 import { equals } from 'ramda';
 
-import { XpmarketPaginatedResponse } from '@api/xpmarket/types';
 import { useApiMutation } from '@system/fetch/useApiMutation';
+import { XpmarketPaginatedResponse } from '@xpmarket/xpm.api.xpmarket';
 
 interface ReturnType<Z, T extends XpmarketPaginatedResponse<Z>> {
   data: T | undefined;

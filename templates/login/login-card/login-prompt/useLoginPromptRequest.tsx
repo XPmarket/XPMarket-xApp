@@ -2,10 +2,11 @@ import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
-import { PostLoginRo, User } from '@api/xpmarket/login/types';
 import { useAuth } from '@system/auth/AuthContext';
+import { captureError } from '@system/fetch/errors';
 import { useApiMutation } from '@system/fetch/useApiMutation';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
+import { PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
 
 import { useLoginStatusChecker } from './useLoginStatusChecker';
 
@@ -52,8 +53,7 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
           // eslint-disable-next-line no-console
           console.log('XAPP openSignRequest response:', parsed);
         })
-        // eslint-disable-next-line no-console
-        .catch((error) => console.log('XAPP Error:', error.message));
+        .catch((error) => captureError('XAPP Error', error.message));
 
       // Listen for events
       xApp?.on('payload', (response) => {

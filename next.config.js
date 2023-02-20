@@ -32,20 +32,6 @@ const nextConfig = {
     appEnv: process.env.NEXT_PUBLIC_APP_ENV,
     baseOrigin: process.env.NEXT_PUBLIC_BASE_ORIGIN,
   },
-  rewrites: async () => [
-    {
-      source: '/api/ext-01/:path*',
-      destination: 'https://api.sologenic.org/api/v1/:path*',
-    },
-    {
-      source: '/api/ext-02/:path*',
-      destination: 'https://data.ripple.com/v2/:path*',
-    },
-    {
-      source: '/api/ext-03/:path*',
-      destination: 'https://api.xpmarket.com/api/:path*',
-    },
-  ],
 };
 
 const plugins = [

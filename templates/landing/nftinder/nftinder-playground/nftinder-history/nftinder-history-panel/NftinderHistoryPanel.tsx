@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 
-import { NftSwipeHistoryItem } from '@api/xpmarket/nft/types';
 import { Stack, Typography } from '@mui/material';
+import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 import { HeartIcon } from '@xpmarket/xpm.ui.icons.heart-icon';
 
 import { NftinderHistoryList } from './nftinder-history-list/NftinderHistoryList';

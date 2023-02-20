@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { OfferCreateType } from '@api/xpmarket/nft/types';
 import { Stack } from '@mui/material';
+import { OfferCreateType } from '@xpmarket/xpm.api.xpmarket';
 
 import { SubmitMutationDto } from '../../types';
 import { NftOfferDialogBodyForm } from './nft-offer-dialog-body-form/NftOfferDialogBodyForm';

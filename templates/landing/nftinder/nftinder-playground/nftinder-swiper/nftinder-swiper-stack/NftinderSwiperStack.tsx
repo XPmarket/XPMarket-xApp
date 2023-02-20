@@ -1,7 +1,7 @@
 import { Dispatch, FC, RefObject, SetStateAction } from 'react';
 
-import { NftSwipeListItem } from '@api/xpmarket/nft/types';
 import { Box } from '@mui/material';
+import { NftSwipeListItem } from '@xpmarket/xpm.api.xpmarket';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 
 import { SWIPE_LIST_OPTIONS } from '../constants';

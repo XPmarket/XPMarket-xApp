@@ -1,8 +1,8 @@
-import { GetLoginCheckRo, User } from '@api/xpmarket/login/types';
 import { AuthContextProps, useAuth } from '@system/auth/AuthContext';
 import { CACHE_KEYS, FETCH_INTERVAL } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiQuery } from '@system/fetch/useApiQuery';
+import { GetLoginCheckRo, User } from '@xpmarket/xpm.api.xpmarket';
 
 export const useLoginStatusChecker = (
   wasSigned: boolean,

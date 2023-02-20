@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { NftSwipeListItem } from '@api/xpmarket/nft/types';
+import { NftSwipeListItem } from '@xpmarket/xpm.api.xpmarket';
 
 export type SwipeDirection = 'left' | 'right' | 'broken';
 

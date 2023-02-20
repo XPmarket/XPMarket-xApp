@@ -8,7 +8,7 @@ import { SxStyles } from '@xpmarket/xpm.system.theme';
 import { HeadAppends } from './head-appends/HeadAppends';
 import { Header } from './header/Header';
 import { Body } from './Body';
-import { XappProvider } from './XAppContext';
+import { XAppProvider } from './XAppContext';
 
 export interface XappPageLayoutProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ export const PageLayout: FC<XappPageLayoutProps> = (props) => {
   const { children } = props;
 
   return (
-    <XappProvider>
+    <XAppProvider>
       <Stack sx={styles.getValue('root')}>
         {/* Debugger: https://remotejs.com/viewer/823382c3-daa3-71d3-0992-8df98a4941b7 */}
         {ENV.client.appEnv !== 'local' && (
@@ -35,7 +35,7 @@ export const PageLayout: FC<XappPageLayoutProps> = (props) => {
           </Stack>
         </Stack>
       </Stack>
-    </XappProvider>
+    </XAppProvider>
   );
 };
 
