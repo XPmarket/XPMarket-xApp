@@ -1,6 +1,6 @@
 import { ParsedUrlQuery } from 'querystring';
 
-export interface LandingQueryParams extends ParsedUrlQuery {
+export interface XAppQueryParams extends ParsedUrlQuery {
   xAppStyle: XAppThemeMode;
 }
 

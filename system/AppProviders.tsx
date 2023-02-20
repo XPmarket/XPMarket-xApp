@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { CssBaseline, PaletteMode } from '@mui/material';
 import { DevtoolsOptions } from '@system/fetch/types';
-import { LandingQueryParams, XAppThemeMode } from '@templates/landing/types';
+import { XAppQueryParams, XAppThemeMode } from '@system/types';
 import {
   CLIENT_SIDE_EMOTION_CACHE,
   ThemeProvider,
@@ -49,7 +49,7 @@ export const AppProviders: FC<AppProvidersProps> = (props) => {
   } = props;
   const [queryClient] = useState(() => QUERY_CLIENT);
   const router = useRouter();
-  const { xAppStyle } = router.query as LandingQueryParams;
+  const { xAppStyle } = router.query as XAppQueryParams;
 
   return (
     <CacheProvider value={emotionCache}>

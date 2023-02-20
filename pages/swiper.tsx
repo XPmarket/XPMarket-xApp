@@ -7,9 +7,9 @@ import { SSRConfig } from 'next-i18next';
 
 import { makeTranslations } from '@system/localization/i18n';
 import { PageLayout } from '@templates/common/layout/page-layout/PageLayout';
-import { Nftinder } from '@templates/landing/nftinder/Nftinder';
+import { Nftinder } from '@templates/nftinder/Nftinder';
 
-const LandingPage: NextPage<
+const SwiperPage: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = () => {
   return (
@@ -31,4 +31,4 @@ export const getServerSideProps: GetServerSideProps<SSRConfig> = async (
   };
 };
 
-export default LandingPage;
+export default SwiperPage;

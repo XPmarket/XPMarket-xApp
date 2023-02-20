@@ -2,7 +2,7 @@ import { FC, useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
-import { useNftOfferDialog } from '@templates/landing/common/nft-create-offer-dialog/useNftOfferDialog';
+import { useNftOfferDialog } from '@templates/nftinder/common/nft-create-offer-dialog/useNftOfferDialog';
 import { Button } from '@xpmarket/xpm.ui.buttons.button';
 
 interface Props {
