@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import { InternalAxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 
 import { makeClient } from '@api/common/setup';
@@ -10,8 +10,8 @@ export const xpmInternalClient = makeClient({
 });
 
 const mutateRequestConfig = (
-  config: AxiosRequestConfig
-): AxiosRequestConfig => {
+  config: InternalAxiosRequestConfig
+): InternalAxiosRequestConfig => {
   const token = Cookies.get(COOKIE_STORAGE.session);
   const { headers } = config;
 

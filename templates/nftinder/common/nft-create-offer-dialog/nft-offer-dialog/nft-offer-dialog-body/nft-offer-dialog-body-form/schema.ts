@@ -4,7 +4,7 @@ import { date, number, object, string } from 'yup';
 import { DATE_FORMATS, getYesterdayDate } from '@xpmarket/xpm.system.time';
 
 const shape = {
-  amount: number().nullable().required(),
+  amount: number().required(),
   amountToken: string().required(),
   duration: number().nullable(),
   date: date()

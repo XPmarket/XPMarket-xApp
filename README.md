@@ -11,7 +11,7 @@ Install same node version as used in `.nvmrc` and install npm packages:
 
 ```
 nvm use
-npm install
+npm install // use `--legacy-peer-deps` if needed
 ```
 
 Copy environment variables (ask for secrets):
