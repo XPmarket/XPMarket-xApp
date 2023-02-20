@@ -1,7 +1,7 @@
 import { addDays, addMonths } from 'date-fns';
 import { useTranslation } from 'next-i18next';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiMutation } from '@system/fetch/useApiMutation';
 import {
@@ -64,7 +64,7 @@ export const useNftOfferCreateRequest = (
       const routeParams: PostOfferCreateRouteParams = {
         id: nftId,
       };
-      const res = await api.xpmarket.nft.postOfferCreate(dto, routeParams);
+      const res = await XPMARKET_API.nft.postOfferCreate(dto, routeParams);
 
       return res;
     } catch (err) {

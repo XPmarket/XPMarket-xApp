@@ -12,7 +12,7 @@ import {
 import Cookies, { CookieAttributes } from 'js-cookie';
 import { useRouter } from 'next/router';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { COOKIE_STORAGE } from '@system/constants';
 import { formatError } from '@system/fetch/errors';
 import { GetLoginCheckRo, PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
@@ -39,7 +39,7 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
 
   const onLoginInitiate = useCallback(async (): Promise<PostLoginRo> => {
     try {
-      const res = await api.xpmarket.login.postLogin();
+      const res = await XPMARKET_API.login.postLogin();
 
       setLoggingIn(true);
 
@@ -52,7 +52,7 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   const onLoginCheck = useCallback(
     async (id: string): Promise<GetLoginCheckRo> => {
       try {
-        const res = await api.xpmarket.login.getLoginCheck({
+        const res = await XPMARKET_API.login.getLoginCheck({
           id,
         });
 

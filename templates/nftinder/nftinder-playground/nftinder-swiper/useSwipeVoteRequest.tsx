@@ -1,6 +1,6 @@
 import { TFunction, useTranslation } from 'next-i18next';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiMutation } from '@system/fetch/useApiMutation';
 import { PostNftSwipeVoteRo } from '@xpmarket/xpm.api.xpmarket';
@@ -30,7 +30,7 @@ const request = async (
 ): Promise<PostNftSwipeVoteRo> => {
   try {
     const { nftId, direction } = variables;
-    const res = await api.xpmarket.nft.postNftSwipeVote({
+    const res = await XPMARKET_API.nft.postNftSwipeVote({
       nftId,
       decision: direction === 'left' ? 0 : 1,
     });

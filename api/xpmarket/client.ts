@@ -1,8 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import Cookies from 'js-cookie';
 
+import { makeClient } from '@api/common/setup';
 import { COOKIE_STORAGE } from '@system/constants';
-import { makeClient } from '@xpmarket/xpm.api.common';
 import { API_BASE, API_BASE_PREFIX } from '@xpmarket/xpm.api.xpmarket';
 
 export const xpmClient = makeClient({

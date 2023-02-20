@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { TFunction, useTranslation } from 'next-i18next';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { useAuth } from '@system/auth/AuthContext';
 import {
   CACHE_KEYS,
@@ -85,7 +85,7 @@ const getCcyBalance = (
 
 const requestBalance = async (t: TFunction): Promise<GetDexBalancesRo> => {
   try {
-    const res = await api.xpmarket.dex.getDexBalances();
+    const res = await XPMARKET_API.dex.getDexBalances();
 
     return res;
   } catch (error) {

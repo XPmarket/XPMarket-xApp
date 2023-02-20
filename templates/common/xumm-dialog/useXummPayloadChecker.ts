@@ -3,7 +3,7 @@ import {
   XummPostPayloadResponse,
 } from 'xumm-sdk/dist/src/types';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_INTERNAL_API } from '@api/xpmarket-internal/constants';
 import { CACHE_KEYS, FETCH_INTERVAL } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
 import { useApiQuery } from '@system/fetch/useApiQuery';
@@ -41,7 +41,7 @@ const requestCheck = async (
   }
 
   try {
-    const res = await api.xpmarketInternal.account.getXummPayload({
+    const res = await XPMARKET_INTERNAL_API.account.getXummPayload({
       id: uuid,
     });
 

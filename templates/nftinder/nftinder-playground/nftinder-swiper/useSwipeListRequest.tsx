@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import { TFunction, useTranslation } from 'next-i18next';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { useAuth } from '@system/auth/AuthContext';
 import { CACHE_KEYS } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
@@ -73,7 +73,7 @@ const mapSwipeList = (
 
 const request = async (t: TFunction): Promise<GetNftSwipeListRo> => {
   try {
-    const res = await api.xpmarket.nft.getNftSwipeList({
+    const res = await XPMARKET_API.nft.getNftSwipeList({
       limit: SWIPE_LIST_OPTIONS.limit,
     });
 

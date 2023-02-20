@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react';
 import { TFunction, useTranslation } from 'next-i18next';
 
-import { api } from '@api/endpoints';
+import { XPMARKET_API } from '@api/xpmarket/constants';
 import { useAuth } from '@system/auth/AuthContext';
 import { CACHE_KEYS } from '@system/fetch/constants';
 import { formatError } from '@system/fetch/errors';
@@ -41,7 +41,7 @@ export const useSwipeHistoryRequest = (): ReturnType => {
 
 const request = async (t: TFunction): Promise<GetNftSwipeHistoryRo> => {
   try {
-    const res = await api.xpmarket.nft.getNftSwipeHistory({
+    const res = await XPMARKET_API.nft.getNftSwipeHistory({
       limit: SWIPE_HISTORY_LIMIT,
     });
 
