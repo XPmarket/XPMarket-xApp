@@ -45,7 +45,6 @@ npm run build
 Use this command to run your application on the server (set `NEXT_PUBLIC_APP_ENV`)
 
 ```
-npm run start:dev // Dev environment
 npm run start:prod // Prod environment
 ```
 

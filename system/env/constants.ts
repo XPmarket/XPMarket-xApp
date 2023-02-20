@@ -7,8 +7,8 @@ const port = process.env.PORT || '3000';
 
 export const ENV: TypedEnv = {
   client: {
-    appEnv: (publicRuntimeConfig.appEnv as AppEnv) || 'local',
-    baseOrigin: publicRuntimeConfig.baseOrigin || `http://localhost:${port}`,
+    appEnv: (publicRuntimeConfig?.appEnv as AppEnv) || 'local',
+    baseOrigin: publicRuntimeConfig?.baseOrigin || `http://localhost:${port}`,
   },
   server: {
     prefetchEnabled:

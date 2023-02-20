@@ -10,8 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "start:prod": "next start --port=3000",
-    "start:dev": "next start --port=3001",
+    "start:prod": "next start --port=3002",
     "build": "tsc -p tsconfig.production.json && next build",
     "build:analyze": "cross-env ANALYZE=true npm run build",
     "export": "next export",
