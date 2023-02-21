@@ -26,8 +26,6 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
     useApiMutation(onLoginInitiate);
   const handleTransactionSuccess = useCallback(
     (user: User, accessToken: string) => {
-      // eslint-disable-next-line no-console
-      console.log('SIGNED', user, accessToken);
       onLoginSuccess(user, accessToken);
       toggleSigned(true);
       onSuccess();

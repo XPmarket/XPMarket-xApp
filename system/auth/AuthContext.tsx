@@ -80,9 +80,6 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
     [storeUser, storeSession]
   );
 
-  // eslint-disable-next-line no-console
-  console.log('SET', storedUser, storedSession);
-
   const onLoginCancel = useCallback(() => {
     setLoggingIn(false);
   }, []);
