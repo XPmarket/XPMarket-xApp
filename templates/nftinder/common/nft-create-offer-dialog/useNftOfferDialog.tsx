@@ -65,7 +65,6 @@ export const useNftOfferDialog = (
               onCancel={hideXummModal}
               isLoading={isLoading}
               isError={isError}
-              withOptionalStep
               data={data?.data}
               onSuccess={handleXummDialogSuccess}
             />

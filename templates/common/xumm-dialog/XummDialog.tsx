@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 import { CreatedPayload } from 'xumm-sdk/dist/src/types';
 
@@ -7,13 +7,10 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  Stack,
-  Typography,
 } from '@mui/material';
-import { useToggle } from '@xpmarket/xpm.system.use-toggle';
 import { Button } from '@xpmarket/xpm.ui.buttons.button';
 
-import { XummPrompt } from './xumm-prompt/XummPrompt';
+import { MobilePrompt } from './xumm-prompt/MobilePrompt';
 import { useTransactionObserver } from './useTransactionObserver';
 
 interface Props {
@@ -22,7 +19,6 @@ interface Props {
   isOpen: boolean;
   isLoading: boolean;
   isError: boolean;
-  withOptionalStep: boolean;
   onSuccess: (id: string) => void;
   title?: string;
   onBackdropClick?: () => void;
@@ -39,10 +35,8 @@ export const XummDialog: FC<Props> = (props) => {
     onBackdropClick,
     onSuccess,
     onCancel,
-    withOptionalStep,
     ...rest
   } = props;
-  const { isToggled, toggleOn } = useToggle(false);
   const { hasExpired } = useTransactionObserver(data, onSuccess, onCancel);
 
   return (
@@ -61,32 +55,13 @@ export const XummDialog: FC<Props> = (props) => {
     >
       <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
       <DialogContent>
-        {!isToggled && withOptionalStep && (
-          <Stack spacing={1}>
-            <Typography fontWeight="fontWeightBold" fontSize={13}>
-              {t('common:walletDialog.toggleDescription')}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="error.main"
-              fontWeight="fontWeightMedium"
-              onClick={toggleOn}
-              sx={{
-                cursor: 'pointer',
-              }}
-            >
-              {t('common:walletDialog.toggleAction')}
-            </Typography>
-          </Stack>
-        )}
-        {(isToggled || !withOptionalStep) && (
-          <XummPrompt
-            data={data}
-            isLoading={isLoading}
-            isError={isError}
-            hasExpired={hasExpired}
-          />
-        )}
+        <MobilePrompt
+          data={data}
+          isLoading={isLoading}
+          isError={isError}
+          hasExpired={hasExpired}
+          onCancel={onCancel}
+        />
       </DialogContent>
       <DialogActions>
         <Button onClick={onCancel} variant="outlined">

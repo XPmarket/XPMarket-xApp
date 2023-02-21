@@ -5,6 +5,7 @@ import { CreatedPayload } from 'xumm-sdk/dist/src/types';
 
 import { Stack, Typography } from '@mui/material';
 import { Box } from '@mui/material';
+import { TOAST_IDS } from '@system/constants';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import { CircularLoader } from '@xpmarket/xpm.ui.loaders.circular-loader';
@@ -15,10 +16,11 @@ interface Props {
   isError: boolean;
   isLoading: boolean;
   hasExpired: boolean;
+  onCancel: () => void;
 }
 
 export const MobilePrompt: FC<Props> = (props) => {
-  const { isLoading, data, hasExpired, isError } = props;
+  const { isLoading, data, hasExpired, isError, onCancel } = props;
   const { t } = useTranslation();
   const { xApp } = useXApp();
   const uuid = data?.uuid;
@@ -26,17 +28,22 @@ export const MobilePrompt: FC<Props> = (props) => {
   useEffect(() => {
     if (uuid) {
       xApp?.openSignRequest({ uuid });
-
-      xApp?.on('payload', (response) => {
-        if (response.reason === 'DECLINED') {
-          toast.error(t<string>('common:walletDialog.declined'));
-        }
-        if (response.reason === 'SIGNED') {
-          toast.error(t<string>('common:walletDialog.signed'));
-        }
-      });
     }
-  }, [uuid, t, xApp]);
+
+    xApp?.on('payload', (response) => {
+      if (response.reason === 'DECLINED') {
+        toast.error(t<string>('common:walletDialog.declined'), {
+          toastId: TOAST_IDS.txDeclinded,
+        });
+        onCancel();
+      }
+      if (response.reason === 'SIGNED') {
+        toast.error(t<string>('common:walletDialog.signed'), {
+          toastId: TOAST_IDS.txSigned,
+        });
+      }
+    });
+  }, [uuid, t, xApp, onCancel]);
 
   if (isLoading) {
     return (

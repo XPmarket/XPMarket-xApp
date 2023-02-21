@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
 import { useAuth } from '@system/auth/AuthContext';
+import { TOAST_IDS } from '@system/constants';
 import { useApiMutation } from '@system/fetch/useApiMutation';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
@@ -33,7 +34,9 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
             if (response.reason === 'DECLINED') {
               reset();
               onLoginCancel();
-              toast.error(t<string>('common:walletDialog.declined'));
+              toast.error(t<string>('common:walletDialog.declined'), {
+                toastId: TOAST_IDS.txDeclinded,
+              });
             }
             if (response.reason === 'SIGNED') {
               toggleXAppSigned(true);

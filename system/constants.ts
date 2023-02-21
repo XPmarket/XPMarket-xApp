@@ -1,4 +1,6 @@
 export const TOAST_IDS = {
+  txDeclinded: 'TX_DECLINED',
+  txSigned: 'TX_SIGNED',
   loginRequired: 'LOG_IN_REQUIRED',
   tooManyRequests: 'TOO_MANY_REQUESTS',
   loggedOut: 'LOGGED_OUT',
@@ -6,7 +8,6 @@ export const TOAST_IDS = {
 };
 
 export const STATIC_IMAGES = {
-  qrCode: '/images/qr-disabled.png',
   favicon: {
     androidChrome192x192: '/images/favicon/android-chrome-192x192.png',
     androidChrome512x512: '/images/favicon/android-chrome-512x512.png',

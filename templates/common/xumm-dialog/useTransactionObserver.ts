@@ -4,6 +4,7 @@ import useWebSocket from 'react-use-websocket';
 import { useTranslation } from 'next-i18next';
 import { XummPostPayloadResponse } from 'xumm-sdk/dist/src/types';
 
+import { TOAST_IDS } from '@system/constants';
 import { useTabVisibility } from '@xpmarket/xpm.system.use-tab-visibility';
 
 import { checkExpiration, checkSigned } from './helpers';
@@ -52,7 +53,9 @@ export const useTransactionObserver = (
       ) {
         onCancel?.();
         toggleRejected(true);
-        toast.error(t<string>('common:walletDialog.declined'));
+        toast.error(t<string>('common:walletDialog.declined'), {
+          toastId: TOAST_IDS.txDeclinded,
+        });
       }
       if (isExpired || data?.meta.expired) {
         toggleExpiration(true);
