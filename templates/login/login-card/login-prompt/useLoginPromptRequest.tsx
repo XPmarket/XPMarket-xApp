@@ -1,10 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
 import { useAuth } from '@system/auth/AuthContext';
-import { CACHE_KEYS } from '@system/fetch/constants';
-import { useApiQuery } from '@system/fetch/useApiQuery';
+import { useApiMutation } from '@system/fetch/useApiMutation';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
 
@@ -23,17 +22,16 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
   const { onLoginInitiate, onLoginSuccess, onLoginCancel } = useAuth();
   const [wasXAppSigned, toggleXAppSigned] = useState<boolean>(false);
   const [wasSigned, toggleSigned] = useState<boolean>(false);
-  const { refetch, data, isError, isLoading } = useApiQuery(
-    CACHE_KEYS.loginInitiate,
+  const { mutate, data, reset, isError, isLoading } = useApiMutation(
     onLoginInitiate,
     {
       onSuccess: (data) => {
         if (data.uuid) {
           xApp?.openSignRequest({ uuid: data.uuid });
 
-          // Listen for events
           xApp?.on('payload', (response) => {
             if (response.reason === 'DECLINED') {
+              reset();
               onLoginCancel();
               toast.error(t<string>('common:walletDialog.declined'));
             }
@@ -57,8 +55,13 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
 
   useLoginStatusChecker(wasXAppSigned, data?.uuid, handleTransactionSuccess);
 
+  useEffect(() => {
+    // Prompt on load
+    mutate();
+  }, [mutate]);
+
   return {
-    requestLogin: refetch,
+    requestLogin: mutate,
     isLoading,
     isError,
     wasSigned,
