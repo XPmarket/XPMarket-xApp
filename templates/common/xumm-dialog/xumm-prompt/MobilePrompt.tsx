@@ -1,16 +1,14 @@
 import React, { FC, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 import { CreatedPayload } from 'xumm-sdk/dist/src/types';
 
 import { Stack, Typography } from '@mui/material';
 import { Box } from '@mui/material';
+import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import { CircularLoader } from '@xpmarket/xpm.ui.loaders.circular-loader';
 import { ErrorPlaceholder } from '@xpmarket/xpm.ui.placeholders';
-import { TextLink } from '@ui/buttons/TextLink';
-
-import { makeXummSignPath } from './helpers';
 
 interface Props {
   data: CreatedPayload | undefined;
@@ -22,14 +20,23 @@ interface Props {
 export const MobilePrompt: FC<Props> = (props) => {
   const { isLoading, data, hasExpired, isError } = props;
   const { t } = useTranslation();
-  const { push } = useRouter();
+  const { xApp } = useXApp();
   const uuid = data?.uuid;
 
   useEffect(() => {
     if (uuid) {
-      push(makeXummSignPath(uuid));
+      xApp?.openSignRequest({ uuid });
+
+      xApp?.on('payload', (response) => {
+        if (response.reason === 'DECLINED') {
+          toast.error(t<string>('common:walletDialog.declined'));
+        }
+        if (response.reason === 'SIGNED') {
+          toast.error(t<string>('common:walletDialog.signed'));
+        }
+      });
     }
-  }, [uuid, push]);
+  }, [uuid, t, xApp]);
 
   if (isLoading) {
     return (
@@ -60,15 +67,6 @@ export const MobilePrompt: FC<Props> = (props) => {
       <Typography fontWeight="fontWeightBold" fontSize={13}>
         {t('common:walletDialog.mobileDescription')}
       </Typography>
-      <TextLink
-        variant="body2"
-        color="error.main"
-        fontWeight="fontWeightMedium"
-        href={makeXummSignPath(uuid)}
-        rel="nofollow noopener noreferrer"
-      >
-        {t('common:walletDialog.noMobileRedirect')}
-      </TextLink>
       <CircularLoader size={20} isCentered />
     </Stack>
   );

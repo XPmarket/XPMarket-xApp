@@ -3,7 +3,7 @@ import { FallbackProps } from 'react-error-boundary';
 import { useTranslation } from 'next-i18next';
 
 import { ContentFallback } from '@templates/common/content-fallback/ContentFallback';
-import { EXTERNAL_ROUTES } from '@xpmarket/xpm.system.routes';
+import { BASE_DOMAINS, EXTERNAL_ROUTES } from '@xpmarket/xpm.system.routes';
 import { LinkButton } from '@ui/buttons/LinkButton';
 
 import { MaintenanceIcon } from './icons/MaintenanceIcon';
@@ -20,7 +20,7 @@ export const BodyFallback: FC<Props> = () => {
       info={t('common:contentFallback.reported')}
       action={
         <LinkButton
-          href={EXTERNAL_ROUTES.xpmarketTwitter}
+          href={BASE_DOMAINS.xpmarket + EXTERNAL_ROUTES.xpmarketTwitter}
           target="_blank"
           rel="nofollow noopener noreferrer"
         >

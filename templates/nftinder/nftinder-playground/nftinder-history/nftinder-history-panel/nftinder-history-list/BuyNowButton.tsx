@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 
 import {
+  BASE_DOMAINS,
   replaceRouteParams,
   XPMARKET_ROUTES,
 } from '@xpmarket/xpm.system.routes';
@@ -17,7 +18,10 @@ export const BuyNowButton: FC<Props> = (props) => {
 
   return (
     <LinkButton
-      href={replaceRouteParams(XPMARKET_ROUTES.nftItem.path, { id: nftId })}
+      href={
+        BASE_DOMAINS.xpmarket +
+        replaceRouteParams(XPMARKET_ROUTES.nftItem.path, { id: nftId })
+      }
       target="_blank"
       fullWidth
     >

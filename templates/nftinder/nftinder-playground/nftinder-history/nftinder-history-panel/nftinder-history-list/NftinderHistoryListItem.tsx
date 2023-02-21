@@ -5,6 +5,7 @@ import { Box, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 import {
+  BASE_DOMAINS,
   replaceRouteParams,
   XPMARKET_ROUTES,
 } from '@xpmarket/xpm.system.routes';
@@ -43,9 +44,12 @@ export const NftinderHistoryListItem: FC<Props> = (props) => {
         />
         <Stack overflow="hidden">
           <TextLink
-            href={replaceRouteParams(XPMARKET_ROUTES.nftItem.path, {
-              id: nft.id,
-            })}
+            href={
+              BASE_DOMAINS.xpmarket +
+              replaceRouteParams(XPMARKET_ROUTES.nftItem.path, {
+                id: nft.id,
+              })
+            }
             fontWeight="fontWeightBold"
             fontSize={14}
             target="_blank"
@@ -56,9 +60,12 @@ export const NftinderHistoryListItem: FC<Props> = (props) => {
           </TextLink>
           {nft.collectionId && nft.collection ? (
             <TextLink
-              href={replaceRouteParams(XPMARKET_ROUTES.nftCollection.path, {
-                id: nft.collectionId,
-              })}
+              href={
+                BASE_DOMAINS.xpmarket +
+                replaceRouteParams(XPMARKET_ROUTES.nftCollection.path, {
+                  id: nft.collectionId,
+                })
+              }
               fontWeight="fontWeightRegular"
               fontSize={12}
               target="_blank"
