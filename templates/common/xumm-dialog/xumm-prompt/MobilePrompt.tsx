@@ -37,7 +37,7 @@ export const MobilePrompt: FC<Props> = (props) => {
         });
       }
       if (response.reason === 'SIGNED') {
-        toast.error(t<string>('common:walletDialog.signed'), {
+        toast.success(t<string>('common:walletDialog.signed'), {
           toastId: TOAST_IDS.txSigned,
         });
       }
