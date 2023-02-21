@@ -14,7 +14,7 @@ interface Props {
 
 export const LoginPromptCard: FC<Props> = (props) => {
   const { onSuccess } = props;
-  const { data, requestTransaction, isLoading, isError, wasSigned } =
+  const { data, requestLogin, isLoading, isError, wasSigned } =
     useLoginPromptRequest(onSuccess);
   const { t } = useTranslation();
   const isValidQr = !!data;
@@ -57,7 +57,7 @@ export const LoginPromptCard: FC<Props> = (props) => {
             </Typography>
           )}
           {!isValidQr && !wasSigned && (
-            <Button fullWidth onClick={requestTransaction} loading={isLoading}>
+            <Button fullWidth onClick={requestLogin} loading={isLoading}>
               {t('common:loginDialog.signIn')}
             </Button>
           )}

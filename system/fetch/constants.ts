@@ -11,6 +11,7 @@ export const CACHE_KEYS = {
     ['nft-swipe-list', walletAddress] as const,
   loginObserve: (id: string | undefined | null = null) =>
     ['login-observe', id] as const,
+  loginInitiate: ['login-initiate'] as const,
 };
 
 export const QUERY_CLIENT = new QueryClient({
