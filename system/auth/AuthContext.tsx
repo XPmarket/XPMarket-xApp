@@ -9,7 +9,6 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { CookieAttributes } from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import { XPMARKET_API } from '@api/xpmarket/constants';
@@ -75,6 +74,9 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
     },
     [storeUser, storeSession]
   );
+
+  // eslint-disable-next-line no-console
+  console.log('SET', storedUser, storedSession);
 
   const onLoginCancel = useCallback(() => {
     setLoggingIn(false);
@@ -142,11 +144,7 @@ export interface AuthContextProps {
   setAuthenticated: Dispatch<SetStateAction<boolean>>;
   onLoginInitiate: () => Promise<PostLoginRo>;
   onLoginCheck: (id: string) => Promise<GetLoginCheckRo>;
-  onLoginSuccess: (
-    user: User,
-    accessToken: string,
-    sameSite?: CookieAttributes['sameSite']
-  ) => void;
+  onLoginSuccess: (user: User, accessToken: string) => void;
   onLoginCancel: () => void;
   onLogout: () => void;
 }

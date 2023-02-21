@@ -13,6 +13,8 @@ const mutateRequestConfig = (
 ): InternalAxiosRequestConfig => {
   const token = localStorage.getItem(LOCAL_STORAGE.session);
   const { headers } = config;
+  // eslint-disable-next-line no-console
+  console.log('TOKEN', token);
 
   if (token && headers) {
     headers['Authorization'] = `Bearer ${token}`;

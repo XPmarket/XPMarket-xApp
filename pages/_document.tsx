@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 import createEmotionServer from '@emotion/server/create-instance';
 import { STATIC_IMAGES } from '@system/constants';
@@ -71,9 +70,6 @@ class CustomDocument extends Document<Props> {
 
           <meta name="emotion-insertion-point" content="" />
           {emotionStyleTags}
-
-          {/* CloudFlare's Zaraz script */}
-          <Script src="/cdn-cgi/zaraz/i.js" referrerPolicy="origin" />
         </Head>
         <body>
           <Main />

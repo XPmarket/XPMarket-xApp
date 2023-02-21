@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
 import { useAuth } from '@system/auth/AuthContext';
-import { captureError } from '@system/fetch/errors';
 import { useApiMutation } from '@system/fetch/useApiMutation';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
@@ -21,15 +20,17 @@ interface ReturnType {
 export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
   const { t } = useTranslation();
   const { onLoginInitiate, onLoginSuccess, onLoginCancel } = useAuth();
-  const [wasXappSigned, toggleXappSigned] = useState<boolean>(false);
+  const [wasXAppSigned, toggleXAppSigned] = useState<boolean>(false);
   const [wasSigned, toggleSigned] = useState<boolean>(false);
   const { mutate, data, reset, isError, isLoading } =
     useApiMutation(onLoginInitiate);
   const handleTransactionSuccess = useCallback(
     (user: User, accessToken: string) => {
-      onSuccess();
-      onLoginSuccess(user, accessToken, 'None');
+      // eslint-disable-next-line no-console
+      console.log('SIGNED', user, accessToken);
+      onLoginSuccess(user, accessToken);
       toggleSigned(true);
+      onSuccess();
     },
     [onSuccess, onLoginSuccess]
   );
@@ -40,20 +41,11 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
   const uuid = data?.uuid;
   const { xApp } = useXApp();
 
-  useLoginStatusChecker(wasXappSigned, uuid, handleTransactionSuccess);
+  useLoginStatusChecker(wasXAppSigned, uuid, handleTransactionSuccess);
 
   useEffect(() => {
     if (uuid) {
-      xApp
-        ?.openSignRequest({ uuid })
-        ?.then((response) => {
-          const parsed =
-            response instanceof Error ? response.message : response;
-
-          // eslint-disable-next-line no-console
-          console.log('XAPP openSignRequest response:', parsed);
-        })
-        .catch((error) => captureError('XAPP Error', error.message));
+      xApp?.openSignRequest({ uuid });
 
       // Listen for events
       xApp?.on('payload', (response) => {
@@ -62,7 +54,7 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
           toast.error(t<string>('common:walletDialog.declined'));
         }
         if (response.reason === 'SIGNED') {
-          toggleXappSigned(true);
+          toggleXAppSigned(true);
         }
       });
     }
