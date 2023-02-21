@@ -35,13 +35,14 @@ export const MobilePrompt: FC<Props> = (props) => {
         toast.error(t<string>('common:walletDialog.declined'), {
           toastId: TOAST_IDS.txDeclinded,
         });
-        onCancel();
       }
       if (response.reason === 'SIGNED') {
         toast.error(t<string>('common:walletDialog.signed'), {
           toastId: TOAST_IDS.txSigned,
         });
       }
+
+      onCancel();
     });
   }, [uuid, t, xApp, onCancel]);
 

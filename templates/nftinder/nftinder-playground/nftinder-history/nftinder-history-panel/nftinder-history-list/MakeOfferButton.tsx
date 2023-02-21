@@ -25,7 +25,7 @@ export const MakeOfferButton: FC<Props> = (props) => {
   } = props;
   const { t } = useTranslation();
   const handleSubmitSuccess = useCallback(() => {
-    toast.success(t('common:walletDialog.success'));
+    toast.success(t('common:walletDialog.signed'));
   }, [t]);
   const { dialog, openDialog } = useNftOfferDialog({
     assetLogoSrc,

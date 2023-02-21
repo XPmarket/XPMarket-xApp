@@ -74,7 +74,7 @@
     "alt": "XUMM QR code",
     "expired": "QR code expired, please try again",
     "declined": "Transaction declined",
-    "success": "Transaction signed",
+    "signed": "Transaction signed",
     "wasSigned": "Transaction was signed. Proceeding..."
   },
   "nftOfferDialog": {
