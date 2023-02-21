@@ -32,19 +32,18 @@ export const handleErrors = async <
           statusCode !== undefined &&
           statusCode !== StatusCodes.TOO_MANY_REQUESTS;
 
-        if (isUnauthorized && isAuthenticated) {
+        if (isUnauthorized) {
           onLogout();
-          toast.info(t('common:info.loggedOut'), {
-            toastId: TOAST_IDS.loggedOut,
-          });
-        } else if (
-          isUnauthorized &&
-          !isAuthenticated &&
-          errorFormat.showToast
-        ) {
-          toast.error(t('common:errors.loginRequired'), {
-            toastId: TOAST_IDS.loginRequired,
-          });
+
+          if (isAuthenticated) {
+            toast.info(t('common:info.loggedOut'), {
+              toastId: TOAST_IDS.loggedOut,
+            });
+          } else {
+            toast.error(t('common:errors.loginRequired'), {
+              toastId: TOAST_IDS.loginRequired,
+            });
+          }
         } else if (statusCode === StatusCodes.TOO_MANY_REQUESTS) {
           toast.error(t('common:errors.tooManyRequests'), {
             toastId: TOAST_IDS.tooManyRequests,

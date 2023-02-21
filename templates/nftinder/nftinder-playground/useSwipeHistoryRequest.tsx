@@ -22,12 +22,11 @@ interface ReturnType {
 export const useSwipeHistoryRequest = (): ReturnType => {
   const [historyList, setHistoryList] = useState<NftSwipeHistoryItem[]>([]);
   const { t } = useTranslation();
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const { isLoading } = useApiQuery(
     CACHE_KEYS.swipeHistory(user?.address),
     () => request(t),
     {
-      enabled: isAuthenticated,
       onSuccess: (data) => setHistoryList(data.data),
     }
   );

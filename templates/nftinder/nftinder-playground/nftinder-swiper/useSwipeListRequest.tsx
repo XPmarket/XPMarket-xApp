@@ -25,12 +25,11 @@ interface ReturnType {
 export const useSwipeListRequest = (): ReturnType => {
   const [swipeList, setSwipeList] = useState<SwipeList>({});
   const { t } = useTranslation();
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const { isLoading, isFetching, refetch } = useApiQuery(
     CACHE_KEYS.swipeList(user?.address),
     () => request(t),
     {
-      enabled: isAuthenticated,
       onSuccess: (data) => {
         setSwipeList((prevSwipeList) => mapSwipeList(prevSwipeList, data.data));
       },

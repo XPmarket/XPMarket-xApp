@@ -29,8 +29,6 @@ const ReactQueryDevtools = dynamic<DevtoolsOptions>(
 
 export interface AppProvidersProps {
   children: ReactNode;
-  reqSession: string | undefined;
-  reqUser: string | undefined;
   reqUserAgent: string | undefined;
   isTestEnv?: boolean;
   dehydratedState?: DehydratedState;
@@ -42,8 +40,6 @@ export const AppProviders: FC<AppProvidersProps> = (props) => {
     dehydratedState,
     children,
     isTestEnv,
-    reqSession,
-    reqUser,
     emotionCache = CLIENT_SIDE_EMOTION_CACHE,
     reqUserAgent,
   } = props;
@@ -65,7 +61,7 @@ export const AppProviders: FC<AppProvidersProps> = (props) => {
           pauseOnHover={false}
         />
         <QueryClientProvider client={queryClient}>
-          <AuthProvider reqSession={reqSession} reqUser={reqUser}>
+          <AuthProvider>
             {!isTestEnv && <ReactQueryDevtools />}
             <CssBaseline />
             <Hydrate state={dehydratedState}>{children}</Hydrate>

@@ -9,33 +9,35 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Cookies, { CookieAttributes } from 'js-cookie';
+import { CookieAttributes } from 'js-cookie';
 import { useRouter } from 'next/router';
 
 import { XPMARKET_API } from '@api/xpmarket/constants';
-import { COOKIE_STORAGE } from '@system/constants';
+import { LOCAL_STORAGE } from '@system/constants';
 import { formatError } from '@system/fetch/errors';
 import { GetLoginCheckRo, PostLoginRo, User } from '@xpmarket/xpm.api.xpmarket';
-import { parseStringified } from '@xpmarket/xpm.system.storage';
+import { useStorage } from '@xpmarket/xpm.system.storage';
 
 import { routeGuard } from './authorization';
 
 interface ProviderProps {
   children: ReactNode;
-  reqSession: string | undefined;
-  reqUser: string | undefined;
 }
 
 export const AuthProvider: FC<ProviderProps> = (props) => {
-  const { children, reqSession, reqUser } = props;
-  const hasAuthRequirements = !!reqUser && !!reqSession;
-  const [isAuthenticated, setAuthenticated] =
-    useState<boolean>(hasAuthRequirements);
-  const [user, setUser] = useState<User | undefined>(
-    hasAuthRequirements ? parseStringified<User>(reqUser) : undefined
-  );
+  const { children } = props;
+  const [isAuthenticated, setAuthenticated] = useState<boolean>(false);
   const [isLoggingIn, setLoggingIn] = useState<boolean>(false);
   const { events, replace, query, asPath } = useRouter();
+  const { storedValue: storedSession, setStoredValue: storeSession } =
+    useStorage<string | undefined>(LOCAL_STORAGE.session, {
+      type: 'local',
+    });
+  const { storedValue: storedUser, setStoredValue: storeUser } = useStorage<
+    User | undefined
+  >(LOCAL_STORAGE.user, {
+    type: 'local',
+  });
 
   const onLoginInitiate = useCallback(async (): Promise<PostLoginRo> => {
     try {
@@ -65,26 +67,13 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   );
 
   const onLoginSuccess = useCallback(
-    (
-      userData: User,
-      accessToken: string,
-      sameSite: CookieAttributes['sameSite'] = 'Lax'
-    ) => {
-      Cookies.set(COOKIE_STORAGE.user, JSON.stringify(userData), {
-        sameSite,
-        expires: 365,
-        secure: true,
-      });
-      Cookies.set(COOKIE_STORAGE.session, accessToken, {
-        sameSite,
-        expires: 365,
-        secure: true,
-      });
-      setUser(userData);
+    (userData: User, accessToken: string) => {
+      storeUser(userData);
+      storeSession(accessToken);
       setAuthenticated(true);
       setLoggingIn(false);
     },
-    []
+    [storeUser, storeSession]
   );
 
   const onLoginCancel = useCallback(() => {
@@ -92,35 +81,24 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   }, []);
 
   const onLogout = useCallback(() => {
-    const cookieSession = Cookies.get(COOKIE_STORAGE.session);
-    const cookieUser = Cookies.get(COOKIE_STORAGE.user);
-
-    if (isAuthenticated || !!cookieUser || !cookieSession) {
-      setUser(undefined);
-      setAuthenticated(false);
-      Cookies.remove(COOKIE_STORAGE.user);
-      Cookies.remove(COOKIE_STORAGE.session);
-      routeGuard({
-        asPath,
-        onRedirect: replace,
-        stringifiedUser: undefined,
-        session: undefined,
-      });
-    }
-  }, [isAuthenticated, asPath, replace]);
+    setAuthenticated(false);
+    storeUser(undefined);
+    storeSession(undefined);
+    routeGuard({
+      asPath,
+      onRedirect: replace,
+      isAuthenticated: false,
+    });
+  }, [asPath, replace, storeSession, storeUser]);
 
   // Client-side route guard
   useEffect(() => {
     const handleRouteChange = (nextRoute: string) => {
-      const cookieUser = Cookies.get(COOKIE_STORAGE.user);
-      const cookieSession = Cookies.get(COOKIE_STORAGE.session);
-
       routeGuard({
         asPath: nextRoute,
         onRedirect: replace,
-        stringifiedUser: cookieUser,
-        session: cookieSession,
         referrer: asPath,
+        isAuthenticated,
       });
       setLoggingIn(false);
     };
@@ -130,24 +108,17 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
     return () => {
       events.off('beforeHistoryChange', handleRouteChange);
     };
-  }, [events, replace, query, asPath]);
+  }, [events, replace, query, asPath, isAuthenticated]);
 
   useEffect(() => {
-    const stringifiedUser = Cookies.get(COOKIE_STORAGE.user);
-    const stringifiedSession = Cookies.get(COOKIE_STORAGE.session);
-    const user = parseStringified<User>(stringifiedUser);
-
-    if (user && stringifiedSession) {
-      setUser(user);
-      setAuthenticated(true);
-    }
-  }, []);
+    setAuthenticated(!!storedUser && !!storedSession);
+  }, [storedUser, storedSession]);
 
   return (
     <AuthContext.Provider
       value={{
-        user,
-        setUser,
+        user: storedUser,
+        session: storedSession,
         isAuthenticated,
         isLoggingIn,
         setAuthenticated,
@@ -165,7 +136,7 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
 
 export interface AuthContextProps {
   user: User | undefined;
-  setUser: Dispatch<SetStateAction<User | undefined>>;
+  session: string | undefined;
   isAuthenticated: boolean;
   isLoggingIn: boolean;
   setAuthenticated: Dispatch<SetStateAction<boolean>>;

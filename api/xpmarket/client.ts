@@ -1,18 +1,17 @@
 import { InternalAxiosRequestConfig } from 'axios';
-import Cookies from 'js-cookie';
 
 import { makeClient } from '@api/common/setup';
-import { COOKIE_STORAGE } from '@system/constants';
+import { LOCAL_STORAGE } from '@system/constants';
 import { API_BASE, API_BASE_PREFIX } from '@xpmarket/xpm.api.xpmarket';
 
 export const xpmClient = makeClient({
-  baseURL: `${API_BASE}/${API_BASE_PREFIX}`,
+  baseURL: `${API_BASE}${API_BASE_PREFIX}`,
 });
 
 const mutateRequestConfig = (
   config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
-  const token = Cookies.get(COOKIE_STORAGE.session);
+  const token = localStorage.getItem(LOCAL_STORAGE.session);
   const { headers } = config;
 
   if (token && headers) {

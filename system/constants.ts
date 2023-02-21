@@ -19,18 +19,13 @@ export const STATIC_IMAGES = {
   },
 };
 
-export const LOCAL_STORAGE = {};
-
-export const SESSION_STORAGE = {
-  networkId: 'NETWORK_ID',
-  nftExplorerFilters: 'NFT_EXPLORER_FILTERS',
+export const LOCAL_STORAGE = {
+  session: 'xpmSession',
+  user: 'xpmUser',
 };
+
+export const SESSION_STORAGE = {};
 
 export const COOKIE_STORAGE = {
   nextLocale: 'NEXT_LOCALE',
-  cookieConsent: 'COOKIE_CONSENT',
-  user: 'XPMARKET_USER',
-  themeMode: 'THEME_MODE',
-  currency: 'CURRENCY',
-  session: 'XPMARKET_SESSION',
 };

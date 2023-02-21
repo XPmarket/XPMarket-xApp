@@ -2,7 +2,6 @@ import { StatusCodes } from 'http-status-codes';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { routeGuard } from '@system/auth/authorization';
-import { COOKIE_STORAGE } from '@system/constants';
 
 // Server-side route guard
 export const middleware = (request: NextRequest): NextResponse | undefined => {
@@ -14,7 +13,6 @@ export const middleware = (request: NextRequest): NextResponse | undefined => {
     asPath: pathname,
     referrer: request.referrer,
     onRedirect: redirect,
-    stringifiedUser: request.cookies.get(COOKIE_STORAGE.user)?.value,
-    session: request.cookies.get(COOKIE_STORAGE.session)?.value,
+    isAuthenticated: true,
   });
 };

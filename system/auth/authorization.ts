@@ -4,18 +4,16 @@ import { findRoute, withQueryParams } from '@xpmarket/xpm.system.routes';
 
 interface Params<T> {
   asPath: string;
-  stringifiedUser: string | undefined;
-  session: string | undefined;
+  isAuthenticated: boolean;
   onRedirect: (path: string) => T;
   referrer?: string;
 }
 
 export const routeGuard = <T>(params: Params<T>): T | undefined => {
-  const { asPath, onRedirect, session, stringifiedUser } = params;
+  const { asPath, onRedirect, isAuthenticated } = params;
   const route = findRoute(asPath, APP_ROUTES);
-  const isAuthorized = !!stringifiedUser && !!session;
 
-  if (route?.isAuthOnly && !isAuthorized) {
+  if (route?.isAuthOnly && !isAuthenticated) {
     const path = withQueryParams(APP_ROUTES.login.path, {
       redirectTo: route.path,
     } as LoginQueryParams);
@@ -23,7 +21,7 @@ export const routeGuard = <T>(params: Params<T>): T | undefined => {
     return onRedirect(path);
   }
 
-  if (route?.isGuestOnly && isAuthorized) {
+  if (route?.isGuestOnly && isAuthenticated) {
     return onRedirect(APP_ROUTES.landing.path);
   }
 };

@@ -25,14 +25,13 @@ interface ReturnType {
 
 export const useTokenBalance = (token: string | undefined): ReturnType => {
   const { codeHex } = decodeToken(token);
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const { t } = useTranslation();
   const { isLoading, data, isError } = useApiQuery(
     CACHE_KEYS.balance(user?.address),
     () => requestBalance(t),
     {
       refetchInterval: FETCH_INTERVAL.accountObjects,
-      enabled: isAuthenticated,
       staleTime: STALE_TIME.accountObjects,
     }
   );

@@ -13,7 +13,6 @@ import { appWithTranslation, SSRConfig } from 'next-i18next';
 
 import { EmotionCache } from '@emotion/react';
 import { AppProviders } from '@system/AppProviders';
-import { COOKIE_STORAGE } from '@system/constants';
 
 import i18nConfig from '../next-i18next.config.js';
 
@@ -30,27 +29,16 @@ interface PageProps {
 
 interface AppProps extends DefaultAppProps<PageProps> {
   emotionCache: EmotionCache | undefined;
-  reqSession: string | undefined;
-  reqUser: string | undefined;
   reqUserAgent: string | undefined;
 }
 
 const MyApp: FC<AppProps> & AppComposition = (props) => {
-  const {
-    Component,
-    pageProps,
-    emotionCache,
-    reqSession,
-    reqUser,
-    reqUserAgent,
-  } = props;
+  const { Component, pageProps, emotionCache, reqUserAgent } = props;
 
   return (
     <AppProviders
       dehydratedState={pageProps.dehydratedState}
       emotionCache={emotionCache}
-      reqSession={reqSession}
-      reqUser={reqUser}
       reqUserAgent={reqUserAgent}
     >
       <Component {...pageProps} />
@@ -63,19 +51,10 @@ MyApp.getInitialProps = async (appContext) => {
   const req = appContext.ctx.req as
     | (IncomingMessage & { cookies: Record<string, string> })
     | undefined;
-  let reqSession: string | undefined;
-  let reqUser: string | undefined;
   const reqUserAgent = req?.headers['user-agent'];
-
-  if (!!req && 'cookies' in req) {
-    reqSession = req.cookies[COOKIE_STORAGE.session];
-    reqUser = req.cookies[COOKIE_STORAGE.user];
-  }
 
   return {
     ...appProps,
-    reqSession,
-    reqUser,
     reqUserAgent,
   };
 };
