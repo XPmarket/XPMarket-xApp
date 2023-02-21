@@ -17,6 +17,7 @@ import {
 import { AuthProvider } from './auth/AuthContext';
 import { QUERY_CLIENT } from './fetch/constants';
 import { buildYupLocale } from './localization/yup';
+import { AxiosInterceptors } from './AxiosInterceptors';
 
 buildYupLocale();
 
@@ -62,9 +63,11 @@ export const AppProviders: FC<AppProvidersProps> = (props) => {
         />
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
-            {!isTestEnv && <ReactQueryDevtools />}
-            <CssBaseline />
-            <Hydrate state={dehydratedState}>{children}</Hydrate>
+            <AxiosInterceptors>
+              {!isTestEnv && <ReactQueryDevtools />}
+              <CssBaseline />
+              <Hydrate state={dehydratedState}>{children}</Hydrate>
+            </AxiosInterceptors>
           </AuthProvider>
         </QueryClientProvider>
       </ThemeProvider>

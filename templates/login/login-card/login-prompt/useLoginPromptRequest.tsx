@@ -45,6 +45,11 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
 
   useEffect(() => {
     if (uuid) {
+      handleTransactionSuccess(
+        { id: '1' },
+        '33157|UM3xoM95MpE7LXdxnNVMd2xuvkdaWHMuaQR16frv'
+      );
+      return;
       xApp?.openSignRequest({ uuid });
 
       // Listen for events
