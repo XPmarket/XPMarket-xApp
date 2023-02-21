@@ -13,16 +13,9 @@
   "month_one": "{{count}} month",
   "month_other": "{{count}} months",
   "unknownCollection": "Unknown collection",
-  "faqShort": "FAQ",
-  "buttons": {
-    "connectWallet": "Connect wallet",
-    "connect": "Connect"
-  },
   "success": {},
   "info": {
-    "loggedOut": "You were logged out due to invalid session",
-    "socketOffline": "Connectivity issue detected, try refreshing the page",
-    "clipboardCopy": "Copied to clipboard"
+    "loggedOut": "You were logged out due to invalid session"
   },
   "errors": {
     "noData": "There is no data currently available.",
@@ -69,7 +62,7 @@
   "loginDialog": {
     "getXumm": "Get Xumm App",
     "signIn": "Sign In",
-    "loginTitle": "Welcome back!",
+    "loginTitle": "Sign in required",
     "loginDescription": "Please sign in with your Xumm app",
     "multiLoginDescription": "You can sign in with an additional wallet",
     "promoTitle": "Experience the Future of XRPL Asset Management with XPmarket!",
@@ -77,17 +70,12 @@
   },
   "walletDialog": {
     "title": "Sign Transaction",
-    "description": "Scan the QR code with your XUMM Wallet to proceed.",
-    "noMobileRedirect": "Failed to redirect to XUMM app? Click here",
-    "mobileDescription": "Sign the transaction in your XUMM app",
+    "mobileDescription": "Waiting for the transaction to be signed...",
     "alt": "XUMM QR code",
     "expired": "QR code expired, please try again",
     "declined": "Transaction declined",
     "success": "Transaction signed",
-    "toggleDescription": "Sign the transaction in your XUMM app",
-    "toggleAction": "Didn't get notification? Click here",
-    "wasSigned": "Transaction was signed. Proceeding...",
-    "signedProcessing": "Transaction signed. Processing your order, it might take a few seconds..."
+    "wasSigned": "Transaction was signed. Proceeding..."
   },
   "nftOfferDialog": {
     "titleByType": {
@@ -104,35 +92,6 @@
         "balance": "Balance",
         "duration": "Duration",
         "date": "Date"
-      }
-    }
-  },
-  "nftAcceptDialog": {
-    "title": "Accept offer",
-    "bestOffer": "Best offer",
-    "fee": "Transaction fee",
-    "expiration": "Expiration date",
-    "totalEarning": "Total earnings",
-    "form": {
-      "button": {
-        "submit": "Accept best offer"
-      },
-      "label": {
-        "tos": "I agree with XPmarket's <0>Terms and Conditions</0>"
-      }
-    }
-  },
-  "nftBuyDialog": {
-    "title": "Buy this NFT",
-    "price": "Price",
-    "fee": "Transaction fees",
-    "total": "Total",
-    "form": {
-      "button": {
-        "submit": "Buy Now!"
-      },
-      "label": {
-        "tos": "I agree with XPmarket's <0>Terms and Conditions</0>"
       }
     }
   },
@@ -164,21 +123,6 @@
     "logo": "Logo"
   },
   "ariaLabels": {
-    "close": "Close",
-    "edit": "Edit",
-    "delete": "delete",
-    "logo": "Logo",
-    "cancel": "Cancel",
-    "togglePassword": "Toggle password visibility",
-    "clearSelection": "Clear selection",
-    "toggleDropdown": "Toggle dropdown",
-    "nextSlide": "Go to next slide",
-    "prevSlide": "Go to previous slide",
-    "menu": "Menu",
-    "toggleRowExpansion": "Toggle row expansion",
-    "listOfLanguages": "List of languages",
-    "language": "Chosen language",
-    "openTradeList": "Open trade list",
-    "reset": "Reset"
+    "close": "Close"
   }
 }
