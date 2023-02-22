@@ -21,21 +21,12 @@ export const HeaderBar: FC = () => {
           width="100%"
           height="100%"
           flexWrap="nowrap"
+          justifyContent="center"
           alignItems="center"
           overflow="hidden"
           spacing={2}
         >
           <AppLogoLink variant={mode} />
-          <Stack
-            direction="row"
-            spacing={1}
-            justifyContent="space-between"
-            alignItems="center"
-            width="100%"
-            color="static.dove"
-          >
-            <Box display="flex" flexGrow={1} />
-          </Stack>
         </Stack>
       </ContentSpacer>
     </Box>

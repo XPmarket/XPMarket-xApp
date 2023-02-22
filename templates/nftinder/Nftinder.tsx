@@ -16,11 +16,8 @@ export const Nftinder: FC = () => {
         overflow: 'hidden', // Prevents swiper cards from overflowing
       }}
     >
-      <Stack spacing={4}>
-        <IntroHeader
-          title={t('nftinder:title')}
-          description={t('nftinder:description')}
-        />
+      <Stack spacing={2}>
+        <IntroHeader title={t('nftinder:title')} description={undefined} />
         <NftinderPlayground />
       </Stack>
     </ContentLayout>
