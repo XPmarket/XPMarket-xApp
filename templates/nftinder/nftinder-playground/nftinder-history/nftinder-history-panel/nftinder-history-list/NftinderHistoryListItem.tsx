@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { useTranslation } from 'next-i18next';
 
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { Stack } from '@mui/system';
 import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
 import {
@@ -9,12 +8,13 @@ import {
   replaceRouteParams,
   XPMARKET_ROUTES,
 } from '@xpmarket/xpm.system.routes';
-import { ELLIPSIS_OVERFLOW, LINK_OVERFLOW } from '@xpmarket/xpm.system.theme';
+import { LINK_OVERFLOW } from '@xpmarket/xpm.system.theme';
 import { Card } from '@xpmarket/xpm.ui.cards.card';
 import { AssetAvatar } from '@xpmarket/xpm.ui.gallery.asset-avatar';
 import { TextLink } from '@ui/buttons/TextLink';
 
 import { BuyNowButton } from './BuyNowButton';
+import { ListItemCollection } from './ListItemCollection';
 import { MakeOfferButton } from './MakeOfferButton';
 
 interface Props {
@@ -23,7 +23,6 @@ interface Props {
 
 export const NftinderHistoryListItem: FC<Props> = (props) => {
   const { nft } = props;
-  const { t } = useTranslation();
 
   return (
     <Card
@@ -58,31 +57,10 @@ export const NftinderHistoryListItem: FC<Props> = (props) => {
           >
             {nft.name}
           </TextLink>
-          {nft.collectionId && nft.collection ? (
-            <TextLink
-              href={
-                BASE_DOMAINS.xpmarket +
-                replaceRouteParams(XPMARKET_ROUTES.nftCollection.path, {
-                  id: nft.collectionId,
-                })
-              }
-              fontWeight="fontWeightRegular"
-              fontSize={12}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              sx={LINK_OVERFLOW}
-            >
-              {nft.collection}
-            </TextLink>
-          ) : (
-            <Typography
-              fontWeight="fontWeightRegular"
-              fontSize={12}
-              sx={ELLIPSIS_OVERFLOW}
-            >
-              {t('common:unknownCollection')}
-            </Typography>
-          )}
+          <ListItemCollection
+            nftCollection={nft.collection}
+            nftCollectionId={nft.collectionId}
+          />
         </Stack>
         <Stack
           direction="row"

@@ -39,7 +39,7 @@ export const handleErrors = async <
             toast.info(t('common:info.loggedOut'), {
               toastId: TOAST_IDS.loggedOut,
             });
-          } else {
+          } else if (errorFormat.showToast) {
             toast.error(t('common:errors.loginRequired'), {
               toastId: TOAST_IDS.loginRequired,
             });
