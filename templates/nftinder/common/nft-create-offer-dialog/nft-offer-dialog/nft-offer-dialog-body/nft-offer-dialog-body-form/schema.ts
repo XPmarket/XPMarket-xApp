@@ -1,10 +1,11 @@
 import { parse } from 'date-fns';
 import { date, number, object, string } from 'yup';
 
+import { allowNaN } from '@system/form/transformers';
 import { DATE_FORMATS, getYesterdayDate } from '@xpmarket/xpm.system.time';
 
 const shape = {
-  amount: number().required(),
+  amount: number().transform(allowNaN).required(),
   amountToken: string().required(),
   duration: number().nullable(),
   date: date()
