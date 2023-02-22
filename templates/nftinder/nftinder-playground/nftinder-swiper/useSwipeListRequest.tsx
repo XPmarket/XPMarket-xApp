@@ -10,20 +10,21 @@ import {
   GetNftSwipeListRo,
   NftSwipeListItem,
 } from '@xpmarket/xpm.api.xpmarket';
+import { SwipeList } from '@xpmarket/xpm.ui.gallery.vote-swiper';
 
 import { SWIPE_LIST_OPTIONS } from './constants';
-import { SwipeList } from './types';
+import { SwiperItem } from './types';
 
 interface ReturnType {
-  swipeList: SwipeList;
-  setSwipeList: Dispatch<SetStateAction<SwipeList>>;
+  swipeList: SwipeList<SwiperItem>;
+  setSwipeList: Dispatch<SetStateAction<SwipeList<SwiperItem>>>;
   isLoading: boolean;
   isFetching: boolean;
   prefetchBatch: () => void;
 }
 
 export const useSwipeListRequest = (): ReturnType => {
-  const [swipeList, setSwipeList] = useState<SwipeList>({});
+  const [swipeList, setSwipeList] = useState<SwipeList<SwiperItem>>({});
   const { t } = useTranslation();
   const { user, isReady, isAuthenticated } = useAuth();
   const { isLoading, isFetching, refetch } = useApiQuery(
@@ -54,15 +55,15 @@ export const useSwipeListRequest = (): ReturnType => {
 };
 
 const mapSwipeList = (
-  prevSwipeList: SwipeList,
+  prevSwipeList: SwipeList<SwiperItem>,
   latestListItems: NftSwipeListItem[]
-): SwipeList => {
-  const latestSwipeList: SwipeList = { ...prevSwipeList };
+): SwipeList<SwiperItem> => {
+  const latestSwipeList: SwipeList<SwiperItem> = { ...prevSwipeList };
 
   latestListItems.forEach((newListItem) => {
     if (!latestSwipeList[newListItem.id]) {
       latestSwipeList[newListItem.id] = {
-        nft: newListItem,
+        item: newListItem,
         swipeDirection: undefined,
       };
     }

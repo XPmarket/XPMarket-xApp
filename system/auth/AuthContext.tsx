@@ -42,6 +42,7 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   } = useStorage<User | undefined>(LOCAL_STORAGE.user, {
     type: 'local',
   });
+  const isReady = isUserInitialized && isSessionInitialized;
 
   const onLoginInitiate = useCallback(async (): Promise<PostLoginRo> => {
     try {
@@ -115,15 +116,26 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   }, [events, replace, query, asPath, isAuthenticated]);
 
   useEffect(() => {
-    setAuthenticated(!!storedUser && !!storedSession);
-  }, [storedUser, storedSession]);
+    if (isReady) {
+      const storedAuthState = !!storedUser && !!storedSession;
+
+      setAuthenticated(storedAuthState);
+
+      routeGuard({
+        asPath,
+        onRedirect: replace,
+        isAuthenticated: storedAuthState,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isReady, storedUser, storedSession]);
 
   return (
     <AuthContext.Provider
       value={{
         user: storedUser,
         session: storedSession,
-        isReady: isUserInitialized && isSessionInitialized,
+        isReady,
         isAuthenticated,
         isLoggingIn,
         setAuthenticated,

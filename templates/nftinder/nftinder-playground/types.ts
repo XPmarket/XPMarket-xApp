@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
 
-import { NftSwipeHistoryItem } from '@xpmarket/xpm.api.xpmarket';
+import { SwiperItem } from './nftinder-swiper/types';
 
-export type SetHistoryList = Dispatch<SetStateAction<NftSwipeHistoryItem[]>>;
+export type SetHistoryList = Dispatch<SetStateAction<SwiperItem[]>>;

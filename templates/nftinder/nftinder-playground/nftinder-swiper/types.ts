@@ -1,25 +1,10 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import { NftSwipeListItem } from '@xpmarket/xpm.api.xpmarket';
+import { AnyObjectWithId } from '@xpmarket/xpm.system.types';
+import { SwipeDirection } from '@xpmarket/xpm.ui.gallery.vote-swiper';
 
-export type SwipeDirection = 'left' | 'right' | 'broken';
-
-export interface CardRefElement {
-  onActionClick: (direction: SwipeDirection) => void;
-}
-
-export type SwipeList = Record<string, SwipeListItem>;
-
-export interface SwipeListItem {
-  nft: NftSwipeListItem;
-  swipeDirection: SwipeDirection | undefined;
-}
+export type SwiperItem = AnyObjectWithId & NftSwipeListItem;
 
 export interface VoteMutationVariables {
   nftId: string;
   direction: SwipeDirection;
 }
-
-export type SetActionAnimation = Dispatch<
-  SetStateAction<SwipeDirection | undefined>
->;
