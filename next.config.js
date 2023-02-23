@@ -9,6 +9,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  */
 const nextConfig = {
   webpack(config) {
+    config.mode = 'production';
+    config.optimization = {
+      ...config.optimization,
+      sideEffects: true, // tells webpack to recognise the sideEffects flag in package.json, ramda is side effects free
+      minimize: true, // needs to be set to `true` for proper tree-shaking
+      providedExports: true, // if set to `true` it gives far better results
+      usedExports: true, // needs to be set to `true` for proper tree-shaking
+      concatenateModules: true, // needs to be set to `true` for proper tree-shaking
+    };
+
     return config;
   },
   images: {
@@ -26,6 +36,14 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true, // CI runs type-checking before build
+  },
+  modularizeImports: {
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
+    ramda: {
+      transform: 'ramda/src/{{member}}',
+    },
   },
   publicRuntimeConfig: {
     appEnv: process.env.NEXT_PUBLIC_APP_ENV,
