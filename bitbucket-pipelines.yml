@@ -21,7 +21,7 @@ pipelines:
           script:
             - apt-get update && apt-get -qq install rsync
 
-            - npm ci --cache .npm --prefer-offline --omit=dev
+            - npm ci --cache .npm --prefer-offline --omit=dev --legacy-peer-deps
             - npm run build
 
             - mkdir deploy-xpm-xapp-prod
