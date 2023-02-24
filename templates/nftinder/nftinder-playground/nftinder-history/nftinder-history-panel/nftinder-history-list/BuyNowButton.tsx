@@ -23,6 +23,7 @@ export const BuyNowButton: FC<Props> = (props) => {
         replaceRouteParams(XPMARKET_ROUTES.nftItem.path, { id: nftId })
       }
       target="_blank"
+      rel="nofollow noopener noreferrer"
       fullWidth
     >
       {t('nftinder:history.buyNow')}

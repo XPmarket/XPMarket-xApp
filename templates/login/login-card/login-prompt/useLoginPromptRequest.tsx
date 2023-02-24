@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 
@@ -57,11 +57,6 @@ export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {
   const { xApp } = useXApp();
 
   useLoginStatusChecker(wasXAppSigned, data?.uuid, handleTransactionSuccess);
-
-  useEffect(() => {
-    // Prompt on load
-    mutate();
-  }, [mutate]);
 
   return {
     requestLogin: mutate,

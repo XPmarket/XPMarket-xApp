@@ -42,6 +42,11 @@
     "tooManyRequests": "You made too many requests. Please wait a bit.",
     "imageNotLoaded": "Image failed to load"
   },
+  "layout": {
+    "footer": {
+      "contact": "Got a question or need help? <0>Contact us</0>"
+    }
+  },
   "walletDropdown": {
     "logout": "Logout",
     "addAccount": "Add account",
@@ -61,9 +66,9 @@
   },
   "loginDialog": {
     "getXumm": "Get Xumm App",
-    "signIn": "Sign In",
-    "loginTitle": "Sign in required",
-    "loginDescription": "Please sign in with your Xumm app",
+    "signIn": "Access NFT Swiper",
+    "loginTitle": "Welcome to XPMarket NFT Swiper!",
+    "loginDescription": "Here you can easily explore and discover the amazing art.",
     "multiLoginDescription": "You can sign in with an additional wallet",
     "promoTitle": "Experience the Future of XRPL Asset Management with XPmarket!",
     "promoDescription": "Log in with your XUMM wallet to keep track of your assets, trade on our DEX, Quick Swap your tokens, explore thousands of NFTS and more! And don't worry - connecting your wallet to XPmarket only shares your public address, so your funds are always safe and secure, with no control over them from XPmarket."

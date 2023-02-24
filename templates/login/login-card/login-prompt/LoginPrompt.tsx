@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import { Button } from '@xpmarket/xpm.ui.buttons.button';
+import { XpmarketLogoIcon } from '@xpmarket/xpm.ui.icons.xpmarket-logo-icon';
 import { CircularLoader } from '@xpmarket/xpm.ui.loaders.circular-loader';
 
 import { useLoginPromptRequest } from './useLoginPromptRequest';
@@ -32,9 +33,13 @@ export const LoginPromptCard: FC<Props> = (props) => {
       textAlign="center"
     >
       <Stack spacing={4} justifyContent="center" alignItems="center">
-        <Stack spacing={1} justifyContent="center" alignItems="center">
+        <XpmarketLogoIcon sx={styles.getValue('logo')} />
+        <Stack spacing={1} justifyContent="inherit" alignItems="inherit">
           <Typography sx={styles.getValue('title')}>
             {t('common:loginDialog.loginTitle')}
+          </Typography>
+          <Typography sx={styles.getValue('description')}>
+            {t('common:loginDialog.loginDescription')}
           </Typography>
         </Stack>
         <Stack spacing={4} mt={4} justifyContent="center" alignItems="center">
@@ -68,11 +73,32 @@ export const LoginPromptCard: FC<Props> = (props) => {
 };
 
 const styles = new SxStyles({
+  logo: {
+    animation: 'spin-animation 2s infinite',
+    display: 'inline-block',
+    fontSize: '160px',
+
+    '@keyframes spin-animation': {
+      '0%': {
+        transform: 'rotate(0deg) scale(1)',
+      },
+      '50%': {
+        transform: 'rotate(359deg) scale(0.7)',
+      },
+      '100%': {
+        transform: 'rotate(0deg) scale(1)',
+      },
+    },
+  },
   title: {
-    fontSize: 24,
+    fontSize: 19,
     fontWeight: 'fontWeightRegular',
-    color: (theme) =>
-      theme.palette.mode === 'light' ? 'static.black' : 'static.white',
+    color: 'text.primary',
+  },
+  description: {
+    fontSize: 14,
+    fontWeight: 'fontWeightRegular',
+    color: 'secondary.main',
   },
   error: {
     color: 'error.main',
