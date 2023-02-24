@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const { i18n } = require('./next-i18next.config');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -28,6 +29,7 @@ const nextConfig = {
       'cdn.xpmarket.com',
     ],
   },
+  i18n,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true, // CI runs linting before build
