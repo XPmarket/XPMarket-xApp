@@ -21,11 +21,11 @@ export const TextLink = (props: TextLinkProps): JSX.Element => {
 
   return (
     <XpmTextLink
-      component={NextLink}
       onClick={handleClick}
       href={href}
       target={target}
       {...restProps}
+      component={NextLink}
     />
   );
 };

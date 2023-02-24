@@ -21,11 +21,11 @@ export const LinkButton = (props: LinkButtonProps): JSX.Element => {
 
   return (
     <XpmLinkButton
-      LinkComponent={NextLink}
       onClick={handleClick}
       href={href}
       target={target}
       {...restProps}
+      LinkComponent={NextLink}
     />
   );
 };
