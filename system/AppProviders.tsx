@@ -11,7 +11,6 @@ import { DevtoolsOptions } from '@system/fetch/types';
 import { XAppQueryParams, XAppThemeMode } from '@system/types';
 import {
   CLIENT_SIDE_EMOTION_CACHE,
-  customMuiTheme,
   ThemeProvider,
 } from '@xpmarket/xpm.system.theme-provider';
 
@@ -19,7 +18,7 @@ import { AuthProvider } from './auth/AuthContext';
 import { AxiosInterceptors } from './auth/AxiosInterceptors';
 import { QUERY_CLIENT } from './fetch/constants';
 import { buildYupLocale } from './localization/yup';
-import { FONT_FAMILY } from './theme/constants';
+import { appMuiTheme } from './theme/themeSetup';
 
 buildYupLocale();
 
@@ -55,7 +54,7 @@ export const AppProviders: FC<AppProvidersProps> = (props) => {
       <ThemeProvider
         themeMode={getThemeMode(xAppStyle)}
         userAgent={reqUserAgent}
-        themeOverride={(mode) => customMuiTheme(mode, FONT_FAMILY)}
+        themeOverride={appMuiTheme}
       >
         <ToastContainer
           position="bottom-left"
