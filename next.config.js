@@ -40,9 +40,19 @@ const nextConfig = {
   modularizeImports: {
     '@mui/icons-material': {
       transform: '@mui/icons-material/{{member}}',
+      preventFullImport: true,
+    },
+
+    'date-fns': {
+      transform: 'date-fns/{{member}}',
+      preventFullImport: true,
+    },
+    'date-fns-tz': {
+      transform: 'date-fns-tz/{{member}}',
+      preventFullImport: true,
     },
     ramda: {
-      transform: 'ramda/src/{{member}}',
+      transform: 'ramda/es/{{member}}',
     },
   },
   publicRuntimeConfig: {
