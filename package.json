@@ -110,6 +110,9 @@
     "xumm-xapp-sdk": "1.5.4",
     "yup": "1.0.2"
   },
+  "peerDependencies": {
+    "framer-motion": "10.0.1"
+  },
   "devDependencies": {
     "@jest/core": "29.4.3",
     "@next/eslint-plugin-next": "13.2.3",
