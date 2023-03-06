@@ -23,11 +23,7 @@ export const NftinderHistoryPanel: FC<Props> = (props) => {
         direction="row"
         spacing={1}
         alignItems="center"
-        color={(theme) =>
-          theme.palette.mode === 'dark'
-            ? theme.palette.static.dove
-            : theme.palette.static.dusty
-        }
+        color="secondary.dark"
       >
         <HeartIcon />
         <Typography fontSize={14} fontWeight="fontWeightBold">

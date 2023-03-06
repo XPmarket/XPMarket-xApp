@@ -29,11 +29,7 @@ export const NftinderHistoryList: FC<Props> = (props) => {
         <Typography
           fontSize={14}
           fontWeight="fontWeightBold"
-          color={(theme) =>
-            theme.palette.mode === 'dark'
-              ? theme.palette.static.dove
-              : theme.palette.static.dusty
-          }
+          color="secondary.dark"
         >
           {t('nftinder:history.empty')}
         </Typography>

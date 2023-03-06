@@ -41,7 +41,10 @@ const styles = new SxStyles({
     borderTopLeftRadius: '8px',
     borderTopRightRadius: '8px',
     backgroundColor: 'card.dark',
-    color: 'static.boulder',
+    color: (theme) =>
+      theme.palette.mode === 'dark'
+        ? theme.palette.secondary.dark
+        : theme.palette.secondary.light,
     px: {
       xs: 2,
       sm: 3,

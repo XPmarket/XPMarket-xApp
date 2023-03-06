@@ -44,7 +44,7 @@ export const NftOfferDialogBodyInfo: FC<Props> = (props) => {
           <Typography
             fontWeight="fontWeightRegular"
             fontSize={14}
-            color="static.boulder"
+            color="secondary.main"
             sx={ELLIPSIS_OVERFLOW}
           >
             {collectionName || t('common:unknownCollection')}
@@ -62,7 +62,7 @@ export const NftOfferDialogBodyInfo: FC<Props> = (props) => {
           <Typography
             fontWeight="fontWeightRegular"
             fontSize={14}
-            color="static.boulder"
+            color="secondary.main"
             sx={ELLIPSIS_OVERFLOW}
           >
             <NumberText
