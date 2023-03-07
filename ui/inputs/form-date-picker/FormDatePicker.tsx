@@ -8,13 +8,12 @@ import {
 import { ErrorText } from '../common/ErrorText';
 
 export const FormDatePicker = <
-  TInputDate,
   TDate,
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
   props: Omit<
-    XpmFormDatePickerProps<TInputDate, TDate, TFieldValues, TName>,
+    XpmFormDatePickerProps<TDate, TFieldValues, TName>,
     'ErrorComponent'
   >
 ): JSX.Element => {

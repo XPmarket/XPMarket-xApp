@@ -101,7 +101,7 @@ const styles = new SxStyles({
     color: 'secondary.main',
   },
   error: {
-    color: 'error.main',
+    color: 'tertiary.main',
   },
   success: {
     color: 'success.main',

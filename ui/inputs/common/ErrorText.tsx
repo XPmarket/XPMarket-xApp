@@ -32,6 +32,6 @@ export const ErrorText: FC<Props> = (props) => {
 
 const styles = new SxStyles({
   root: {
-    color: 'error.main',
+    color: 'tertiary.main',
   },
 });
