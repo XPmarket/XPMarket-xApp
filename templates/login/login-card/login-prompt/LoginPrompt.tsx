@@ -77,6 +77,7 @@ const styles = new SxStyles({
     animation: 'spin-animation 2s infinite',
     display: 'inline-block',
     fontSize: '160px',
+    color: 'primary.main',
 
     '@keyframes spin-animation': {
       '0%': {

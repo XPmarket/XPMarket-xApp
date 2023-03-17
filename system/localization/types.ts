@@ -7,39 +7,10 @@ export interface Translations {
 
 export type I18nNamespaces =
   | '404'
-  | 'restricted'
-  | 'admin'
-  | 'tokenAirdrops'
-  | 'allTokens'
   | 'backend'
-  | 'common'
-  | 'cookiePolicy'
-  | 'disclaimer'
-  | 'exchangesTop'
-  | 'fx'
-  | 'fxTop'
   | 'login'
-  | 'nftCollection'
-  | 'nftCollectionsTop'
-  | 'nftExplorer'
   | 'nftinder'
-  | 'nftItem'
-  | 'portfolio'
-  | 'privacyNotice'
-  | 'profitAndLoss'
-  | 'richestXrplCommunity'
-  | 'swap'
-  | 'termsAndConditions'
-  | 'token'
-  | 'tokensHeatmap'
-  | 'tokensTop'
-  | 'landing'
-  | 'tradeList'
-  | 'trading'
-  | 'trustline'
-  | 'xrplStatistics'
-  | 'nftsHeatmap'
-  | 'dexCompetition';
+  | 'common';
 
 export interface LocaleProps {
   min?: number;

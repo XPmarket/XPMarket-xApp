@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
 
 import {
   SwipeDirection,
@@ -21,9 +22,16 @@ export const NftinderSwiper: FC<Props> = (props) => {
   const { swipeList, setSwipeList, isLoading, isFetching, prefetchBatch } =
     useSwipeListRequest();
   const { voteMutation } = useSwipeVoteRequest();
+  const { t } = useTranslation();
 
   return (
     <VoteSwiper
+      localization={{
+        leftKeyLabel: t('nftinder:leftKey'),
+        noDataLabel: t('nftinder:noData'),
+        refreshLabel: t('nftinder:refresh'),
+        rightKeyLabel: t('nftinder:rightKey'),
+      }}
       isMobile={isAtBreakpoint}
       isFetching={isFetching}
       isLoading={isLoading}

@@ -11,16 +11,8 @@
 #cache
 .npm
 
-#ssl
-/server/certificates/*.pem
-
-#next-pwa (service-workers)
-**/public/workbox-*.js
-**/public/workbox-*.js.map
-**/public/service-worker.js
-**/public/service-worker.js.map
-**/public/worker-*.js
-**/public/fallback-*.js
+# vscode
+.vscode
 
 # next.js
 /.next/

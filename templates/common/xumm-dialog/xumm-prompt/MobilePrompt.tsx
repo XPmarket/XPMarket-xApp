@@ -9,7 +9,7 @@ import { TOAST_IDS } from '@system/constants';
 import { useXApp } from '@templates/common/layout/page-layout/XAppContext';
 import { SxStyles } from '@xpmarket/xpm.system.theme';
 import { CircularLoader } from '@xpmarket/xpm.ui.loaders.circular-loader';
-import { ErrorPlaceholder } from '@xpmarket/xpm.ui.placeholders';
+import { ErrorPlaceholder } from '@ui/placeholders/ErrorPlaceholder';
 
 interface Props {
   data: CreatedPayload | undefined;

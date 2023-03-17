@@ -1,5 +1,9 @@
 {
   "title": "NFT Swiper - a quick way to make a choice",
+  "leftKey": "Use",
+  "noData": "There is currently no data to display",
+  "refresh": "Refresh",
+  "rightKey": "arrow keys to navigate NFTs easier",
   "history": {
     "title": "Recently liked NFTs",
     "makeOffer": "Make offer",
