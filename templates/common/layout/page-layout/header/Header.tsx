@@ -34,7 +34,7 @@ export const Header: FC = () => {
 const styles = new SxStyles({
   appBar: {
     bgcolor: 'background.default',
-    borderBottom: (theme) => `thin solid ${theme.palette.yankees.main}`,
+    borderBottom: (theme) => `thin solid ${theme.palette.divider}`,
     filter: 'drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.20))',
   },
   toolbar: {
