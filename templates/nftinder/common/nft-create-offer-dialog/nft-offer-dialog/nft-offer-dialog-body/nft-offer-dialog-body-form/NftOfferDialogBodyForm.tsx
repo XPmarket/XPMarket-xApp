@@ -53,7 +53,7 @@ export const NftOfferDialogBodyForm: FC<Props> = (props) => {
       <Stack spacing={2}>
         <FormNumberField
           variant="big"
-          color="primary"
+          color="secondary"
           name="amount"
           control={formMethods.control}
           label={t('common:nftOfferDialog.form.label.amount')}
@@ -79,7 +79,7 @@ export const NftOfferDialogBodyForm: FC<Props> = (props) => {
         <Stack direction="row" spacing={1}>
           <FormAutocomplete
             name="duration"
-            color="primary"
+            color="secondary"
             control={formMethods.control}
             label={t('common:nftOfferDialog.form.label.duration')}
             options={durationOptions}
@@ -87,7 +87,7 @@ export const NftOfferDialogBodyForm: FC<Props> = (props) => {
           />
           <FormDatePicker
             name="date"
-            color="primary"
+            color="secondary"
             control={formMethods.control}
             label={t('common:nftOfferDialog.form.label.date')}
             disablePast
@@ -193,7 +193,10 @@ const makeDurationOptions = (t: TFunction): Option<number>[] => {
 
 const styles = new SxStyles({
   inputWrapper: {
-    bgcolor: 'floral.main',
+    bgcolor: (theme) =>
+      theme.palette.mode === 'dark'
+        ? theme.palette.card.main
+        : theme.palette.background.paper,
     borderRadius: 2,
   },
   numberInput: {

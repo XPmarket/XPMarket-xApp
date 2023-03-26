@@ -97,6 +97,6 @@ const styles = new SxStyles({
   balanceLabel: {
     fontSize: 12,
     fontWeight: 'fontWeightRegular',
-    color: 'vividCerise.main',
+    color: 'text.secondary',
   },
 });
