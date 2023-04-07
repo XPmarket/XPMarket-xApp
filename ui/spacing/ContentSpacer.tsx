@@ -1,13 +1,14 @@
 import { FC, ReactNode } from 'react';
 
 import { Box, BoxProps, Container, ContainerProps } from '@mui/material';
-import { SxStyles } from '@xpmarket/xpm.system.theme';
+import { SxObject, SxStyles } from '@xpmarket/xpm.system.theme';
 
 import { DEFAULT_PAGE_MAX_WIDTH } from './constants';
 
-interface Props extends ContainerProps {
+interface Props extends Omit<ContainerProps, 'sx'> {
   children: ReactNode;
   contentProps?: BoxProps;
+  sx?: SxObject;
 }
 
 export const ContentSpacer: FC<Props> = (props) => {

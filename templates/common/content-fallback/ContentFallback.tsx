@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
 import { CardContent, Stack, Typography } from '@mui/material';
-import { SxStyles, SxTheme } from '@xpmarket/xpm.system.theme';
+import { SxObject, SxStyles } from '@xpmarket/xpm.system.theme';
 import { DEFAULT_PAGE_SPACING } from '@ui/spacing/constants';
 import { ContentSpacer } from '@ui/spacing/ContentSpacer';
 
@@ -11,7 +11,7 @@ interface Props {
   info: string;
   action: ReactNode;
   icon: ReactNode;
-  sx?: SxTheme;
+  sx?: SxObject;
 }
 
 export const ContentFallback: FC<Props> = (props) => {

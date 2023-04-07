@@ -6,7 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Stack } from '@mui/material';
 import { useTokenBalance } from '@templates/common/useTokenBalance';
 import { OfferCreateType } from '@xpmarket/xpm.api.xpmarket';
-import { SxStyles } from '@xpmarket/xpm.system.theme';
 import {
   decodeToken,
   MAX_XRP_PAIR_NUMBER_LENGTH,
@@ -15,12 +14,11 @@ import { Button } from '@xpmarket/xpm.ui.buttons.button';
 import { Option } from '@xpmarket/xpm.ui.inputs.types';
 import { FormAutocomplete } from '@ui/inputs/form-autocomplete/FormAutocomplete';
 import { FormDatePicker } from '@ui/inputs/form-date-picker/FormDatePicker';
-import { FormNumberField } from '@ui/inputs/form-number-field/FormNumberFIeld';
+import { FormTokenAmount } from '@ui/inputs/styled/token-amount/FormTokenAmount';
 
 import { SubmitMutationDto } from '../../../types';
 import { DEFAULT_VALUES, NFT_OFFER_TOKEN_OPTIONS } from './constants';
 import { ErrorReason } from './ErrorReason';
-import { NftOfferDialogTokenInput } from './NftOfferDialogTokenInput';
 import { schema } from './schema';
 import { NftOfferSubmitFormValues } from './types';
 
@@ -51,30 +49,19 @@ export const NftOfferDialogBodyForm: FC<Props> = (props) => {
       height="100%"
     >
       <Stack spacing={2}>
-        <FormNumberField
-          variant="big"
-          color="secondary"
-          name="amount"
-          control={formMethods.control}
+        <FormTokenAmount
+          amountName="amount"
+          dropdownName="amountToken"
           label={t('common:nftOfferDialog.form.label.amount')}
-          allowNegative={false}
-          allowLeadingZeros={false}
-          onChange={handleAmountChange}
-          maxLength={MAX_XRP_PAIR_NUMBER_LENGTH}
+          control={formMethods.control}
+          onAmountChange={handleAmountChange}
           decimalScale={3}
-          autoComplete="off"
-          sx={styles.getValue('numberInput')}
-          InputProps={{
-            endAdornment: (
-              <NftOfferDialogTokenInput
-                control={formMethods.control}
-                name="amountToken"
-                balance={balance}
-                onBalanceClick={handleBalanceClick}
-                options={NFT_OFFER_TOKEN_OPTIONS}
-              />
-            ),
-          }}
+          onBalanceClick={handleBalanceClick}
+          options={NFT_OFFER_TOKEN_OPTIONS}
+          isDropdownDisabled={true}
+          maxLength={MAX_XRP_PAIR_NUMBER_LENGTH}
+          balance={balance}
+          isBalanceLoading={isBalanceLoading}
         />
         <Stack direction="row" spacing={1}>
           <FormAutocomplete
@@ -190,19 +177,3 @@ const makeDurationOptions = (t: TFunction): Option<number>[] => {
 
   return options;
 };
-
-const styles = new SxStyles({
-  inputWrapper: {
-    bgcolor: (theme) =>
-      theme.palette.mode === 'dark'
-        ? theme.palette.card.main
-        : theme.palette.background.paper,
-    borderRadius: 2,
-  },
-  numberInput: {
-    '.number-container > .MuiFormControl-root > .MuiInputBase-root.MuiOutlinedInput-root':
-      {
-        fontSize: 20,
-      },
-  },
-});

@@ -28,5 +28,5 @@ export const FormAutocomplete = <
     'ErrorComponent'
   >
 ): JSX.Element => {
-  return <XpmFormAutocomplete {...(props as any)} ErrorComponent={ErrorText} />;
+  return <XpmFormAutocomplete {...props} ErrorComponent={ErrorText} />;
 };

@@ -1,4 +1,4 @@
-import { Option } from '@xpmarket/xpm.ui.inputs.types';
+import { TokenDropdownOption } from '@ui/inputs/styled/token-amount/types';
 
 import { NftOfferInitialFormValues } from './types';
 
@@ -9,9 +9,12 @@ export const DEFAULT_VALUES: NftOfferInitialFormValues = {
   amountToken: 'XRP',
 };
 
-export const NFT_OFFER_TOKEN_OPTIONS: Option<string>[] = [
+export const NFT_OFFER_TOKEN_OPTIONS: TokenDropdownOption[] = [
   {
     label: 'XRP',
     value: 'XRP',
+    code: 'XRP',
+    index: 0,
+    title: undefined,
   },
 ];

@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import { Box, PaletteMode } from '@mui/material';
 import { BASE_DOMAINS } from '@xpmarket/xpm.system.routes';
-import { SxStyles, SxTheme } from '@xpmarket/xpm.system.theme';
+import { SxObject, SxStyles } from '@xpmarket/xpm.system.theme';
 import { XpmarketLogoTextIcon } from '@xpmarket/xpm.ui.icons.xpmarket-logo-text-icon';
 
 import { useXApp } from './XAppContext';
 
 interface Props {
   variant: PaletteMode;
-  sx?: SxTheme;
+  sx?: SxObject;
 }
 
 export const AppLogoLink: FC<Props> = (props) => {

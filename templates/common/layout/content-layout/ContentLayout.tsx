@@ -1,13 +1,13 @@
 import { FC, ReactNode } from 'react';
 
 import { BoxProps, Breakpoint, Stack, Theme, useTheme } from '@mui/material';
-import { SxStyles, SxTheme } from '@xpmarket/xpm.system.theme';
+import { SxObject, SxStyles } from '@xpmarket/xpm.system.theme';
 import { DEFAULT_PAGE_MAX_WIDTH } from '@ui/spacing/constants';
 import { ContentSpacer } from '@ui/spacing/ContentSpacer';
 
 export interface ContentLayoutProps {
   children: ReactNode;
-  sx?: SxTheme;
+  sx?: SxObject;
   maxWidth?: Breakpoint | BoxProps['maxWidth'];
 }
 

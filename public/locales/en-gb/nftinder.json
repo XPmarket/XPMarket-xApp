@@ -1,5 +1,6 @@
 {
-  "title": "NFT Swiper - a quick way to make a choice",
+  "pageTitle": "NFT Swiper",
+  "pageDescription": "A convenient and fast way to surf the XRPL NFTs and collect your favourites.",
   "leftKey": "Use",
   "noData": "There is currently no data to display",
   "refresh": "Refresh",
