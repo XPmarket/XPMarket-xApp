@@ -44,9 +44,16 @@ export const AuthProvider: FC<ProviderProps> = (props) => {
   });
   const isReady = isUserInitialized && isSessionInitialized;
 
-  const onLoginInitiate = useCallback(async (): Promise<PostLoginRo> => {
+  const onLoginInitiate = useCallback(async (): Promise<
+    PostLoginRo<'xumm'>
+  > => {
     try {
-      const res = await XPMARKET_API.login.postLogin();
+      const res = await XPMARKET_API.login.postLogin(
+        {
+          provider: 'xumm',
+        },
+        {}
+      );
 
       setLoggingIn(true);
 
@@ -158,7 +165,7 @@ export interface AuthContextProps {
   isReady: boolean;
   isLoggingIn: boolean;
   setAuthenticated: Dispatch<SetStateAction<boolean>>;
-  onLoginInitiate: () => Promise<PostLoginRo>;
+  onLoginInitiate: () => Promise<PostLoginRo<'xumm'>>;
   onLoginCheck: (id: string) => Promise<GetLoginCheckRo>;
   onLoginSuccess: (user: User, accessToken: string) => void;
   onLoginCancel: () => void;

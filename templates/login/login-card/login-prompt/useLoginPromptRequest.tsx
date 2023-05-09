@@ -15,7 +15,7 @@ interface ReturnType {
   isLoading: boolean;
   isError: boolean;
   wasSigned: boolean;
-  data: PostLoginRo | undefined;
+  data: PostLoginRo<'xumm'> | undefined;
 }
 
 export const useLoginPromptRequest = (onSuccess: () => void): ReturnType => {

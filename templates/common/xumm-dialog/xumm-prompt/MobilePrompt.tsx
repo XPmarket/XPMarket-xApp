@@ -57,7 +57,7 @@ export const MobilePrompt: FC<Props> = (props) => {
   if (isError || !data) {
     return (
       <Box sx={styles.merge('root', 'fixedSize')}>
-        <ErrorPlaceholder />
+        <ErrorPlaceholder variant="background" bgcolor="card" />
       </Box>
     );
   }
@@ -65,7 +65,11 @@ export const MobilePrompt: FC<Props> = (props) => {
   if (hasExpired) {
     return (
       <Box sx={styles.merge('root', 'fixedSize')}>
-        <ErrorPlaceholder title={t('common:walletDialog.expired')} />
+        <ErrorPlaceholder
+          title={t('common:walletDialog.expired')}
+          variant="background"
+          bgcolor="card"
+        />
       </Box>
     );
   }

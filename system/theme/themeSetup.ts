@@ -1,10 +1,7 @@
 import { mergeDeepRight } from 'ramda';
 
 import { createTheme, PaletteMode, Theme } from '@mui/material';
-import {
-  customMuiTheme,
-  setup,
-} from '@xpmarket/xpm.system.theme-provider/dist/config/themeSetup';
+import { customMuiTheme, setup } from '@xpmarket/xpm.system.theme-provider';
 
 import { SORA_FONT } from './constants';
 
